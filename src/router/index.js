@@ -5,10 +5,11 @@ export default new Router({
     mode: 'hash',
     linkActiveClass: 'isactive',
     routes: [
-        // {
-        //     path: '/',
-        //     component: () => import('../view/HomePage.vue'),
-        // },
+        {
+            path: '/',
+            name: 'homePage',
+            component: () => import('../view/homepage.vue'),
+        },
     ]
 })
 
