@@ -4,6 +4,7 @@ import Router from 'vue-router'
 export default new Router({
     mode: 'hash',
     linkActiveClass: 'isactive',
+    base: '/TrainingApp/',// 属性用于指定应用程序部署时的基本 URL 路径
     routes: [
         {
             path: '/',
