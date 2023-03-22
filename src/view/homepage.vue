@@ -3,7 +3,10 @@
     <div>
       <div class="center">
         <div class="header">
-          <img src="../assets/培训.png" />
+          <img
+            src="../assets/培训.png"
+            :style="{ width: '100%', height: 'auto' }"
+          />
         </div>
         <div class="login">
           <div class="message">
@@ -17,7 +20,25 @@
           </div>
         </div>
         <div class="logon">
-          <img src="../assets/com.png" alt="" />
+          <img
+            src="../assets/com.png"
+            alt=""
+            :style="{ width: '100%', height: 'auto' }"
+          />
+        </div>
+        <div class="classes">
+          <div class="center">
+            <div class="first">
+              <div class="flex">
+                <div class="wenzi bottom">
+                  {{ classes }}
+                </div>
+                <div class="more">
+                  {{ more }}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -30,6 +51,8 @@ export default {
   data() {
     return {
       message: "您还没有登录,只能试听五分钟哦",
+      classes: "在线课程",
+      more: "更多",
     };
   },
 };
@@ -38,10 +61,6 @@ export default {
 <style >
 .center {
   margin: 0 auto;
-}
-
-.center .header img {
-  width: 360px;
 }
 
 .login {
@@ -80,5 +99,30 @@ export default {
 
 .logon img {
   width: 360px;
+}
+
+.bottom {
+  border-bottom: 1px solid blue;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.classes {
+  background: #fff;
+  margin-top: 10px;
+}
+
+.wenzi {
+  padding-left: 11px;
+  padding-top: 10px;
+  font-weight: 300;
+  font-size: 21px;
+}
+
+.more {
+  padding-top: 10px;
+  font-weight: 200;
+  color: #808080a3;
 }
 </style>
