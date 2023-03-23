@@ -38,6 +38,22 @@
                 </div>
               </div>
             </div>
+            <div class="card">
+              <div v-if="tableData && tableData.length > 0">
+                <li
+                  v-for="(item, index) in tableData"
+                  :key="index"
+                  class="component-details"
+                  @click="button(item)"
+                >
+                  <HomePagetwo
+                    :title="tableData.speaker"
+                    :des="tableData.imgurl"
+                    :eal="tableData.CourseName"
+                  />
+                </li>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -46,6 +62,8 @@
 </template>
 
 <script>
+import { reqCategoryList } from "../API/index";
+
 export default {
   name: "HomePage",
   data() {
@@ -53,7 +71,19 @@ export default {
       message: "您还没有登录,只能试听五分钟哦",
       classes: "在线课程",
       more: "更多",
+      tableData:[],
     };
+  },
+  mounted() {
+    this.getList();
+  },
+  methods: {
+    getList() {
+      reqCategoryList().then((data) => {
+        this.tableData = data.data;
+        console.log("this.tableData", data.data);
+      });
+    },
   },
 };
 </script>
