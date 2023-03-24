@@ -43,7 +43,7 @@
                 v-for="(item, index) in tableData"
                 :key="index"
                 class="component-details"
-                @click="button(item)"
+         
               >
                 <HomeAll
                   :title="tableData.speaker"
