@@ -38,21 +38,19 @@
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div v-if="tableData && tableData.length > 0">
-                <li
-                  v-for="(item, index) in tableData"
-                  :key="index"
-                  class="component-details"
-                  @click="button(item)"
-                >
-                  <HomePagetwo
-                    :title="tableData.speaker"
-                    :des="tableData.imgurl"
-                    :eal="tableData.CourseName"
-                  />
-                </li>
-              </div>
+            <div v-if="tableData && tableData.length > 0">
+              <li
+                v-for="(item, index) in tableData"
+                :key="index"
+                class="component-details"
+                @click="button(item)"
+              >
+                <HomeAll
+                  :title="tableData.speaker"
+                  :des="tableData.imgurl"
+                  :eal="tableData.CourseName"
+                />
+              </li>
             </div>
           </div>
         </div>
@@ -63,6 +61,7 @@
 
 <script>
 import { reqCategoryList } from "../API/index";
+import HomeAll from "../components/HomeAll.vue";
 
 export default {
   name: "HomePage",
@@ -71,7 +70,7 @@ export default {
       message: "您还没有登录,只能试听五分钟哦",
       classes: "在线课程",
       more: "更多",
-      tableData:[],
+      tableData: [],
     };
   },
   mounted() {
@@ -84,6 +83,9 @@ export default {
         console.log("this.tableData", data.data);
       });
     },
+  },
+  components: {
+    HomeAll, //在线推荐
   },
 };
 </script>
