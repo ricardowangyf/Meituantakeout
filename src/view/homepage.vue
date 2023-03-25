@@ -91,6 +91,9 @@ export default {
 </script>
 
 <style >
+li{
+  list-style: none;
+}
 .center {
   margin: 0 auto;
 }
