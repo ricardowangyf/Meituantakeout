@@ -45,7 +45,7 @@
                 class="component-details"
          
               >
-                <HomeAll
+                <TrainingCourse
                   :title="tableData.speaker"
                   :des="tableData.imgurl"
                   :eal="tableData.CourseName"
@@ -61,7 +61,7 @@
 
 <script>
 import { reqCategoryList } from "../API/index";
-import HomeAll from "../components/HomeAll.vue";
+import TrainingCourse from "../components/TrainingCourse.vue";
 
 export default {
   name: "HomePage",
@@ -85,7 +85,7 @@ export default {
     },
   },
   components: {
-    HomeAll, //在线推荐
+    TrainingCourse, //在线推荐
   },
 };
 </script>

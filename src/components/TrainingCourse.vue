@@ -1,5 +1,5 @@
 <template>
-  <!-- 详情多肉植物组件 -->
+  <!-- 培训课程介绍组件 -->
   <div class="detali-plant">
     <div class="picture">
       <img :src="des" class="imgsize" />
