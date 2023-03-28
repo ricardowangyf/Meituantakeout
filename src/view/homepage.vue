@@ -1,57 +1,57 @@
 <template>
+  <!-- 主页 -->
   <div>
-    <div>
-      <div class="center">
-        <div class="header">
-          <img
-            src="../assets/培训.png"
-            :style="{ width: '100%', height: 'auto' }"
-          />
+    <div class="center">
+      <div class="header">
+        <img
+          src="../assets/培训.png"
+          :style="{ width: '100%', height: 'auto' }"
+        />
+      </div>
+      <div class="login">
+        <div class="message">
+          <img src="../assets/message.png" />
         </div>
-        <div class="login">
-          <div class="message">
-            <img src="../assets/message.png" />
-          </div>
-          <div class="login-ntext">
-            {{ message }}
-          </div>
-          <div class="login-button">
-            <button>登录</button>
-          </div>
+        <div class="login-ntext">
+          {{ message }}
         </div>
-        <div class="logon">
-          <img
-            src="../assets/com.png"
-            alt=""
-            :style="{ width: '100%', height: 'auto' }"
-          />
+        <div class="login-button">
+          <button>登录</button>
         </div>
-        <div class="classes">
-          <div class="center">
-            <div class="first">
-              <div class="flex">
-                <div class="wenzi bottom">
-                  {{ classes }}
-                </div>
-                <div class="more">
-                  {{ more }}
-                </div>
+      </div>
+      <div class="logon">
+        <img
+          src="../assets/com.png"
+          alt=""
+          :style="{ width: '100%', height: 'auto' }"
+        />
+      </div>
+      <div class="classes">
+        <div class="center">
+          <div class="first">
+            <div class="flex">
+              <div class="wenzi bottom">
+                {{ classes }}
+              </div>
+              <div class="more">
+                {{ more }}
               </div>
             </div>
-            <div v-if="tableData && tableData.length > 0">
-              <li
-                v-for="(item, index) in tableData"
-                :key="index"
-                class="component-details"
-         
-              >
-                <TrainingCourse
-                  :title="tableData.speaker"
-                  :des="tableData.imgurl"
-                  :eal="tableData.CourseName"
-                />
-              </li>
-            </div>
+            <FilterButton />
+          </div>
+          <div class="card" v-if="tableData && tableData.length > 0">
+            <li
+              v-for="(tableData, index) in tableData"
+              :key="index"
+              class="component-details"
+            >
+              <TrainingCourse
+                :title="tableData.speaker"
+                :des="tableData.imgurl"
+                :eal="tableData.CourseName"
+              />
+            </li>
+            <button class="change">换一批</button>
           </div>
         </div>
       </div>
@@ -62,6 +62,7 @@
 <script>
 import { reqCategoryList } from "../API/index";
 import TrainingCourse from "../components/TrainingCourse.vue";
+import FilterButton from "../components/FilterButton.vue";
 
 export default {
   name: "HomePage",
@@ -86,12 +87,13 @@ export default {
   },
   components: {
     TrainingCourse, //在线推荐
+    FilterButton, //过滤按钮
   },
 };
 </script>
 
 <style >
-li{
+li {
   list-style: none;
 }
 .center {
@@ -159,5 +161,38 @@ li{
   padding-top: 10px;
   font-weight: 200;
   color: #808080a3;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 30px;
+  padding-top: 15px;
+}
+
+.component-details {
+  width: 42.33%;
+  padding-left: 15px;
+}
+
+.change {
+  border: 2px solid lightblue;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: black;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  background: #fff;
+  border-bottom-left-radius: 43%;
+  border-bottom-right-radius: 43%;
+  border-top-left-radius: 49%;
+  border-top-right-radius: 43%;
+  display: flex;
+  justify-content: center;
+  margin-left: 85px;
+  width: 130px;
+  margin-top: 31px;
+  margin-bottom: 50px;
 }
 </style>

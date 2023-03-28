@@ -5,32 +5,32 @@ const proxy = {
     'GET /api/user/': [
         {
             "CourseName": "[ps大师班,告别小白]",
-            "imgurl": "/img/25.jpeg",
+            "imgurl": "https://s1.ax1x.com/2023/03/27/ppsMeeg.jpg",
             "speaker": "千小喵",
         },
         {
             "CourseName": "[手绘设计30天速成班]",
-            "imgurl": "/img/ps.jpg",
+            "imgurl": "https://s1.ax1x.com/2023/03/27/ppstBp4.jpg",
             "speaker": "千小喵",
         },
         {
             "CourseName": "[平面设计30天速成班]",
-            "imgurl": "/img/ps.jpg",
+            "imgurl": "https://s1.ax1x.com/2023/03/27/ppstakT.jpg",
             "speaker": "千小喵",
         },
         {
             "CourseName": "[PS初级入门到精通]",
-            "imgurl": "/img/ps.jpg",
+            "imgurl": "https://s1.ax1x.com/2023/03/27/ppstdtU.jpg",
             "speaker": "千小喵",
         },
         {
             "CourseName": "[1天练就Sketch高手]",
-            "imgurl": "/img/ps.jpg",
+            "imgurl": "https://s1.ax1x.com/2023/03/27/ppstwhF.jpg",
             "speaker": "千小喵",
         },
         {
             "CourseName": "[AE初级入门到精通]",
-            "imgurl": "/img/ps.jpg",
+            "imgurl": "https://s1.ax1x.com/2023/03/27/ppstBp4.jpg",
             "speaker": "千小喵",
         },
     ],
