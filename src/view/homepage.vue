@@ -28,31 +28,46 @@
       </div>
       <div class="classes">
         <div class="center">
-          <div class="first">
-            <div class="flex">
-              <div class="wenzi bottom">
-                {{ classes }}
-              </div>
-              <div class="more">
-                {{ more }}
+          <div class="flex">
+            <div class="wenzi bottom">
+              {{ classes }}
+            </div>
+            <div class="more">
+              {{ more }}
+            </div>
+          </div>
+          <div>
+            <div class="start">
+              <h1>{{ classification }}</h1>
+              <FilterButton> </FilterButton>
+            </div>
+            <div class="card" v-if="tableData && tableData.length > 0">
+              <li
+                v-for="(tableData, index) in tableData"
+                :key="index"
+                class="component-details"
+              >
+                <TrainingCourse
+                  :title="tableData.speaker"
+                  :des="tableData.imgurl"
+                  :eal="tableData.CourseName"
+                />
+              </li>
+              <div>
+                <button class="change">换一批</button>
               </div>
             </div>
-            <FilterButton />
           </div>
-          <div class="card" v-if="tableData && tableData.length > 0">
-            <li
-              v-for="(tableData, index) in tableData"
-              :key="index"
-              class="component-details"
-            >
-              <TrainingCourse
-                :title="tableData.speaker"
-                :des="tableData.imgurl"
-                :eal="tableData.CourseName"
-              />
-            </li>
-            <button class="change">换一批</button>
-          </div>
+        </div>
+      </div>
+      <div class="recommendation">
+        <div class="center">
+          <li>
+            <Hotrecommendation />
+          </li>
+          <li>
+            <hotcard />
+          </li>
         </div>
       </div>
     </div>
@@ -61,8 +76,11 @@
 
 <script>
 import { reqCategoryList } from "../API/index";
+// import { recommend } from "../API/index";
 import TrainingCourse from "../components/TrainingCourse.vue";
 import FilterButton from "../components/FilterButton.vue";
+import Hotrecommendation from "../components/Hotrecommendation.vue";
+import hotcard from "../components/hotcard.vue";
 
 export default {
   name: "HomePage",
@@ -72,10 +90,17 @@ export default {
       classes: "在线课程",
       more: "更多",
       tableData: [],
+      selected: 0,
+      classification: "类别: ",
+      name: "",
     };
   },
   mounted() {
     this.getList();
+    // recommend().then((data) => {
+    //     this.tableData = data.data;
+    //     console.log("this.tableData", data.data);
+    //   });
   },
   methods: {
     getList() {
@@ -86,20 +111,24 @@ export default {
     },
   },
   components: {
-    TrainingCourse, //在线推荐
     FilterButton, //过滤按钮
+    TrainingCourse, //在线推荐
+    Hotrecommendation, //热门推荐
+    hotcard,//热门推荐组件内容
   },
 };
 </script>
 
-<style >
+<style scoped>
 li {
   list-style: none;
 }
 .center {
   margin: 0 auto;
 }
-
+.isactive {
+  color: blue;
+}
 .login {
   padding-top: 10px;
   background: white;
@@ -112,6 +141,14 @@ li {
 
 .message img {
   width: 20px;
+}
+.classes h1 {
+  margin: 0;
+  padding-top: 5px;
+  font-size: 12px;
+  padding-left: 12px;
+  color: #808080a1;
+  font-weight: 400;
 }
 
 .message {
@@ -141,45 +178,47 @@ li {
 .bottom {
   border-bottom: 1px solid blue;
 }
-.flex {
-  display: flex;
-  justify-content: space-between;
-}
 .classes {
   background: #fff;
   margin-top: 10px;
 }
-
+.isactive {
+  color: #0000ff91;
+}
 .wenzi {
-  padding-left: 11px;
+  width: 85px;
   padding-top: 10px;
   font-weight: 300;
   font-size: 21px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 .more {
-  padding-top: 10px;
+  padding-top: 26px;
   font-weight: 200;
   color: #808080a3;
+  height: 20px;
+  padding-right: 13px;
 }
 
 .card {
   display: flex;
   flex-wrap: wrap;
-  padding-left: 30px;
-  padding-top: 15px;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
 .component-details {
-  width: 42.33%;
-  padding-left: 15px;
+  width: 43.99%;
+  padding-right: 20px;
 }
 
 .change {
-  border: 2px solid lightblue;
+  border: 2px solid rgb(169, 71, 253);
   padding: 10px 20px;
   border-radius: 5px;
-  color: black;
+  color: rgb(169, 71, 253);
   font-size: 16px;
   text-align: center;
   cursor: pointer;
@@ -188,11 +227,20 @@ li {
   border-bottom-right-radius: 43%;
   border-top-left-radius: 49%;
   border-top-right-radius: 43%;
-  display: flex;
-  justify-content: center;
-  margin-left: 85px;
   width: 130px;
-  margin-top: 31px;
-  margin-bottom: 50px;
+  margin: 0;
+  padding: 0;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.recommendation {
+  background: #fff;
+  margin-top: 15px;
+}
+.start {
+  display: flex;
+  justify-content: start;
 }
 </style>
