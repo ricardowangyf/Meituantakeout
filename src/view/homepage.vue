@@ -53,7 +53,7 @@
                   :eal="tableData.CourseName"
                 />
               </li>
-              <div>
+              <div class="huan">
                 <button class="change">换一批</button>
               </div>
             </div>
@@ -114,7 +114,7 @@ export default {
     FilterButton, //过滤按钮
     TrainingCourse, //在线推荐
     Hotrecommendation, //热门推荐
-    hotcard,//热门推荐组件内容
+    hotcard, //热门推荐组件内容
   },
 };
 </script>
@@ -216,17 +216,16 @@ li {
 
 .change {
   border: 2px solid rgb(169, 71, 253);
-  padding: 10px 20px;
   border-radius: 5px;
   color: rgb(169, 71, 253);
   font-size: 16px;
   text-align: center;
   cursor: pointer;
   background: #fff;
-  border-bottom-left-radius: 43%;
-  border-bottom-right-radius: 43%;
-  border-top-left-radius: 49%;
-  border-top-right-radius: 43%;
+  border-bottom-left-radius: 35%;
+  border-bottom-right-radius: 35%;
+  border-top-left-radius: 35%;
+  border-top-right-radius: 35%;
   width: 130px;
   margin: 0;
   padding: 0;
@@ -242,5 +241,11 @@ li {
 .start {
   display: flex;
   justify-content: start;
+}
+
+.huan {
+  margin-left: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 </style>

@@ -6,12 +6,10 @@ const proxy = {
         {
             "CourseName": "Sketch插件大合集------Usi-ngSketch Like A Boss",
             "imgurl": "https://s1.ax1x.com/2023/03/27/ppsMeeg.jpg",
-            "speaker": "千小喵",
         },
         {
             "CourseName": "[ps大师班,告别小白]",
             "imgurl": "https://s1.ax1x.com/2023/03/27/ppsMeeg.jpg",
-            "speaker": "千小喵",
         },
     ]
 }

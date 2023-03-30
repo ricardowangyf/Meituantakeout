@@ -8,7 +8,7 @@ export default {
   name: "XxxXxx",
   data() {
     return {
-      CourseName: "",
+      CourseName: " ",
     };
   },
   mounted() {
