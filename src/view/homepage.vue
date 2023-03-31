@@ -81,31 +81,74 @@
           </div>
         </div>
       </div>
+      <div class="recommendation">
+        <div class="center">
+          <li class="flex">
+            <div class="wenzi bottom">
+              {{ gan }}
+            </div>
+            <div class="more">
+              {{ more }}
+            </div>
+          </li>
+          <img src="https://s2.xptou.com/2023/03/31/64268ec86158e.jpg" />
+        </div>
+      </div>
+      <div class="recommendation">
+        <div class="center">
+          <li class="flex">
+            <div class="wenzi bottom">
+              {{ shi }}
+            </div>
+            <div class="more">
+              {{ more }}
+            </div>
+          </li>
+          <div class="teacher-card">
+            <li
+              v-for="(detali, index) in detali"
+              :key="index"
+              class="teacher-details"
+            >
+              <teacher
+                :img="detali.users"
+                :username="detali.username"
+                :job="detali.job"
+              />
+            </li>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { reqCategoryList } from "../API/index";
-import { recommend } from "../API/index";
-import TrainingCourse from "../components/TrainingCourse.vue";
-import FilterButton from "../components/FilterButton.vue";
-import Hotrecommendation from "../components/Hotrecommendation.vue";
-import hotcard from "../components/hotcard.vue";
+import { reqCategoryList } from "../API/index"; //在线课程
+import { recommend } from "../API/index"; //热门推荐API
+import { detali } from "../API/index"; //用户头像API
+import TrainingCourse from "../components/TrainingCourse.vue"; //在线推荐
+import FilterButton from "../components/FilterButton.vue"; //过滤按钮
+import Hotrecommendation from "../components/Hotrecommendation.vue"; //热门推荐
+import hotcard from "../components/hotcard.vue"; //热门推荐组件内容
+import teacher from "../components/teacher.vue"; //名师推荐
 
 export default {
   name: "HomePage",
   props: ["initialCounter"],
   data() {
     return {
-      message: "您还没有登录,只能试听五分钟哦",
-      classes: "在线课程",
-      more: "更多",
       tableData: [],
-      name: [],
-      selected: 0,
-      classification: "类别: ",
+      detali: [],
       hotcards: [],
+      name: [],
+      more: "更多",
+      selected: 0,
+      shi: "名师推荐",
+      gan: "干货盘点",
+      classes: "在线课程",
+      classification: "类别: ",
+      message: "您还没有登录,只能试听五分钟哦",
     };
   },
   mounted() {
@@ -113,6 +156,10 @@ export default {
     recommend().then((data) => {
       this.hotcards = data.data;
       console.log("this.hotcards", data.data);
+    });
+    detali().then((data) => {
+      this.detali = data.data;
+      console.log("---->this.detali", data.data);
     });
   },
   methods: {
@@ -128,6 +175,7 @@ export default {
     TrainingCourse, //在线推荐
     Hotrecommendation, //热门推荐
     hotcard, //热门推荐组件内容
+    teacher, //名师推荐
   },
 };
 </script>
@@ -251,6 +299,11 @@ li {
   background: #fff;
   margin-top: 15px;
 }
+.recommendation img {
+  padding-left: 25px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 .start {
   display: flex;
   justify-content: start;
@@ -265,5 +318,16 @@ li {
 .betw {
   display: flex;
   justify-content: space-between;
+}
+
+.teacher-details {
+  width: 43.99%;
+  padding-right: 20px;
+}
+.teacher-card {
+  display: flex;
+  padding-left: 15px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 </style>

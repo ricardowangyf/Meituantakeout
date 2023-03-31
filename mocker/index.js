@@ -1,8 +1,10 @@
 const delay = require('mocker-api/lib/delay');
 const noProxy = process.env.NO_PROXY === 'true';
 const user = require('./user');
+const avatar = require('./avatar');
 const proxy = {
     ...user,
+    ...avatar,
     'GET /api/user/': [
         {
             "CourseName": "[ps大师班,告别小白]",

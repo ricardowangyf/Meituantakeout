@@ -8,6 +8,7 @@
       <h2 class="paragraph">{{ name }}</h2>
       <h1 class="header">{{ monet }}</h1>
     </div>
+    <h1 class="human">{{ human }}人已抢</h1>
     <button>立即抢购</button>
   </div>
 </template>
@@ -25,6 +26,10 @@ export default {
       default: "",
     },
     monet: {
+      type: String,
+      default: "",
+    },
+    human: {
       type: String,
       default: "",
     },
@@ -52,6 +57,15 @@ export default {
   width: 100%;
   border-radius: 5%;
 }
+.human {
+  margin: 0;
+  font-size: 12px;
+  color: gray;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  bottom: 20px;
+}
 .card-content button {
   padding: 0;
   margin: 0;
@@ -61,7 +75,6 @@ export default {
   width: 134px;
   height: 25px;
   color: #fff;
-  margin-top: 16px;
   margin-bottom: 16px;
   margin-left: 10px;
 }
