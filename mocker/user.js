@@ -4,12 +4,16 @@ const noProxy = process.env.NO_PROXY === 'true';
 const proxy = {
     'GET /api/user/list': [
         {
-            "CourseName": "Sketch插件大合集------Usi-ngSketch Like A Boss",
-            "imgurl": "https://s1.ax1x.com/2023/03/27/ppsMeeg.jpg",
+            "people": "18",
+            "money": "￥89",
+            "CourseName": "Sketch插件大合集---Usi-ngSketch Like A Boss",
+            "imgurl": "https://www.hualigs.cn/image/64265c49dc27d.jpg",
         },
         {
-            "CourseName": "[ps大师班,告别小白]",
-            "imgurl": "https://s1.ax1x.com/2023/03/27/ppsMeeg.jpg",
+            "people": "16",
+            "money": "￥129",
+            "CourseName": "Sketch插件大合集---Usi-ngSketch Like A Boss",
+            "imgurl": "https://s1.ax1x.com/2023/03/31/pp27Hr8.png",
         },
     ]
 }

@@ -65,9 +65,20 @@
           <li>
             <Hotrecommendation />
           </li>
-          <li>
-            <hotcard />
-          </li>
+          <div class="betw">
+            <li
+              v-for="(hotcards, index) in hotcards"
+              :key="index"
+              class="component-details"
+            >
+              <hotcard
+                :human="hotcards.people"
+                :monet="hotcards.money"
+                :name="hotcards.CourseName"
+                :imgurl="hotcards.imgurl"
+              />
+            </li>
+          </div>
         </div>
       </div>
     </div>
@@ -76,7 +87,7 @@
 
 <script>
 import { reqCategoryList } from "../API/index";
-// import { recommend } from "../API/index";
+import { recommend } from "../API/index";
 import TrainingCourse from "../components/TrainingCourse.vue";
 import FilterButton from "../components/FilterButton.vue";
 import Hotrecommendation from "../components/Hotrecommendation.vue";
@@ -84,23 +95,25 @@ import hotcard from "../components/hotcard.vue";
 
 export default {
   name: "HomePage",
+  props: ["initialCounter"],
   data() {
     return {
       message: "您还没有登录,只能试听五分钟哦",
       classes: "在线课程",
       more: "更多",
       tableData: [],
+      name: [],
       selected: 0,
       classification: "类别: ",
-      name: "",
+      hotcards: [],
     };
   },
   mounted() {
     this.getList();
-    // recommend().then((data) => {
-    //     this.tableData = data.data;
-    //     console.log("this.tableData", data.data);
-    //   });
+    recommend().then((data) => {
+      this.hotcards = data.data;
+      console.log("this.hotcards", data.data);
+    });
   },
   methods: {
     getList() {
@@ -247,5 +260,10 @@ li {
   margin-left: 100px;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.betw {
+  display: flex;
+  justify-content: space-between;
 }
 </style>
