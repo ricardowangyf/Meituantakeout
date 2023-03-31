@@ -5,3 +5,5 @@ export const reqCategoryList = () => requests({ url: 'http://localhost:3721/api/
 export const recommend = () => requests({ url: 'http://localhost:3721/api/user/list', method: 'GET' }) //列表
 
 export const detali = () => requests({ url: 'http://localhost:3721/api/user/detali', method: 'GET' }) //列表
+
+export const line = () => requests({ url: 'http://localhost:3721/api/user/line', method: 'GET' }) //列表

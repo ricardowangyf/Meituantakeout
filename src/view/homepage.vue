@@ -119,19 +119,44 @@
           </div>
         </div>
       </div>
+      <div class="recommendation">
+        <div class="center">
+          <li class="flex">
+            <div class="wenzi bottom">
+              {{ xian }}
+            </div>
+            <div class="more">
+              {{ more }}
+            </div>
+          </li>
+          <div class="top">
+            <li v-for="(line, index) in line" :key="index">
+              <classes
+                :name="line.name"
+                :data="line.data"
+                :monet="line.money"
+                :job="line.job"
+              />
+            </li>
+        
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { reqCategoryList } from "../API/index"; //在线课程
+import { detali } from "../API/index"; //热门推荐API
 import { recommend } from "../API/index"; //热门推荐API
-import { detali } from "../API/index"; //用户头像API
+import { line } from "../API/index"; //线下推荐API
 import TrainingCourse from "../components/TrainingCourse.vue"; //在线推荐
 import FilterButton from "../components/FilterButton.vue"; //过滤按钮
 import Hotrecommendation from "../components/Hotrecommendation.vue"; //热门推荐
 import hotcard from "../components/hotcard.vue"; //热门推荐组件内容
 import teacher from "../components/teacher.vue"; //名师推荐
+import classes from "../components/classes.vue"; //线下推荐卡片
 
 export default {
   name: "HomePage",
@@ -141,10 +166,13 @@ export default {
       tableData: [],
       detali: [],
       hotcards: [],
+      money:" ",
       name: [],
+      line: [],
       more: "更多",
       selected: 0,
       shi: "名师推荐",
+      xian: "线下推荐",
       gan: "干货盘点",
       classes: "在线课程",
       classification: "类别: ",
@@ -155,18 +183,22 @@ export default {
     this.getList();
     recommend().then((data) => {
       this.hotcards = data.data;
-      console.log("this.hotcards", data.data);
+      console.log("---->this.hotcards", data.data);
     });
     detali().then((data) => {
       this.detali = data.data;
       console.log("---->this.detali", data.data);
+    });
+    line().then((data) => {
+      this.line = data.data;
+      console.log("---->this.line", data.data);
     });
   },
   methods: {
     getList() {
       reqCategoryList().then((data) => {
         this.tableData = data.data;
-        console.log("this.tableData", data.data);
+        console.log("---->this.tableData", data.data);
       });
     },
   },
@@ -176,6 +208,7 @@ export default {
     Hotrecommendation, //热门推荐
     hotcard, //热门推荐组件内容
     teacher, //名师推荐
+    classes, //线下推荐卡片
   },
 };
 </script>
@@ -329,5 +362,8 @@ li {
   padding-left: 15px;
   padding-top: 25px;
   padding-bottom: 25px;
+}
+.top {
+  padding-top: 30px;
 }
 </style>
