@@ -8,12 +8,13 @@
       <h2 class="paragraph">{{ name }}</h2>
       <h1 class="header">{{ monet }}</h1>
     </div>
+    <button>立即抢购</button>
   </div>
 </template>
 
 <script >
 export default {
-  name:'XxxxXxx',
+  name: "XxxxXxx",
   props: {
     imgurl: {
       type: String,
@@ -50,5 +51,18 @@ export default {
   height: 78px;
   width: 100%;
   border-radius: 5%;
+}
+.card-content button {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(255 71 0 / 79%);
+  border: none;
+  text-align: center;
+  width: 134px;
+  height: 25px;
+  color: #fff;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin-left: 10px;
 }
 </style>

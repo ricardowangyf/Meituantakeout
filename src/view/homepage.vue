@@ -65,7 +65,7 @@
           <li>
             <Hotrecommendation />
           </li>
-          <div class="betw">
+          <div class="betw card">
             <li
               v-for="(hotcards, index) in hotcards"
               :key="index"
