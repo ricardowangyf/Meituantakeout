@@ -13,17 +13,17 @@ export default new Router({
         },//首页
         {
             path: '/classity',
-            name: 'homePage',
+            name: 'classity',
             component: () => import('../view/classity.vue'),
         },//分类
         {
             path: '/class',
-            name: 'homePage',
+            name: 'class',
             component: () => import('../view/class.vue'),
         },//课程
         {
             path: '/my',
-            name: 'homePage',
+            name: 'my',
             component: () => import('../view/my.vue'),
         },//我的
     ]

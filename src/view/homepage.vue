@@ -163,7 +163,7 @@
 
 <script>
 import { reqCategoryList } from "../API/index"; //在线课程
-import { detali } from "../API/index"; //热门推荐API
+import { detali } from "../API/index"; //用户头像API
 import { recommend } from "../API/index"; //热门推荐API
 import { line } from "../API/index"; //线下推荐API
 import TrainingCourse from "../components/TrainingCourse.vue"; //在线推荐
@@ -182,7 +182,6 @@ export default {
       tableData: [],
       detali: [],
       hotcards: [],
-      // money: " ",
       name: [],
       line: [],
       more: "更多",
@@ -196,27 +195,25 @@ export default {
     };
   },
   mounted() {
-    this.getList();
     recommend().then((data) => {
       this.hotcards = data.data;
       console.log("---->this.hotcards", data.data);
-    });
+    }); //热门推荐API
+
     detali().then((data) => {
       this.detali = data.data;
       console.log("---->this.detali", data.data);
-    });
+    }); //用户头像API
+
     line().then((data) => {
       this.line = data.data;
       console.log("---->this.line", data.data);
-    });
-  },
-  methods: {
-    getList() {
-      reqCategoryList().then((data) => {
-        this.tableData = data.data;
-        console.log("---->this.tableData", data.data);
-      });
-    },
+    }); //线下推荐API
+
+    reqCategoryList().then((data) => {
+      this.tableData = data.data;
+      console.log("---->this.tableData", data.data);
+    }); //在线课程API
   },
   components: {
     FilterButton, //过滤按钮

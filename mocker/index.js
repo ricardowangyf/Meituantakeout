@@ -3,10 +3,12 @@ const noProxy = process.env.NO_PROXY === 'true';
 const user = require('./user');
 const avatar = require('./avatar');
 const offline = require('./offline');
+const time = require('./time');
 const proxy = {
     ...user,
     ...avatar,
     ...offline,
+    ...time,
     'GET /api/user/': [
         {
             "CourseName": "[ps大师班,告别小白]",
