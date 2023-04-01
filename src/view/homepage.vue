@@ -152,6 +152,11 @@
           </div>
         </div>
       </div>
+      <div class="recommendation">
+        <div class="center">
+          <Footers />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -167,6 +172,7 @@ import Hotrecommendation from "../components/Hotrecommendation.vue"; //热门推
 import hotcard from "../components/hotcard.vue"; //热门推荐组件内容
 import teacher from "../components/teacher.vue"; //名师推荐
 import classes from "../components/classes.vue"; //线下推荐卡片
+import Footers from "../components/Footers.vue"; //底部导航栏
 
 export default {
   name: "HomePage",
@@ -219,6 +225,7 @@ export default {
     hotcard, //热门推荐组件内容
     teacher, //名师推荐
     classes, //线下推荐卡片
+    Footers, //线下推荐卡片
   },
 };
 </script>
@@ -342,7 +349,7 @@ li {
   margin-top: 15px;
 }
 .recommendation img {
-  padding: 30px 0 30px 50px;
+  padding: 30px 0 30px 30px;
 }
 .start {
   display: flex;

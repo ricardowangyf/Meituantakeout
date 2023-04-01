@@ -91,9 +91,9 @@ export default {
   border-bottom-right-radius: 21%;
   border-top-left-radius: 21%;
   border-top-right-radius: 21%;
-  width: 130px;
+  width: 115px;
   margin: 0;
   border: none;
-  padding: 9px;
+  padding: 5px;
 }
 </style>
