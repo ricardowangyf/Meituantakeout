@@ -3,40 +3,26 @@
     <li class="demo">
       <div class="text">
         <img src="../assets/home.svg" />
-        <ul>
-          {{
-            home
-          }}
-        </ul>
+        <h1>
+          {{ home }}
+        </h1>
       </div>
-      <router-link to="/classity">
+      <router-link class="a" to="/classity">
         <div class="text">
           <img src="../assets/classify.svg" />
-          <ul>
-            {{
-              classify
-            }}
-          </ul>
+          <h1>{{ classify }}</h1>
         </div>
       </router-link>
-      <router-link to="/class">
+      <router-link class="a" to="/class">
         <div class="text">
           <img src="../assets/class.svg" />
-          <ul>
-            {{
-              claass
-            }}
-          </ul>
+          <h1>{{ claass }}</h1>
         </div>
       </router-link>
-      <router-link to="/my">
+      <router-link class="a" to="/my">
         <div class="text">
           <img src="../assets/my.svg" />
-          <ul>
-            {{
-              my
-            }}
-          </ul>
+          <h1>{{ my }}</h1>
         </div>
       </router-link>
     </li>
@@ -58,12 +44,17 @@ export default {
 </script>
 
 <style  scoped>
-ul {
+h1 {
   margin: 0;
   padding: 0;
+  font-size: 14px;
+  font-weight: 300;
 }
 li {
   list-style: none;
+}
+.a {
+  text-decoration: none;
 }
 .demo {
   display: flex;
