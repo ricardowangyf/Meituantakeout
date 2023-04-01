@@ -10,7 +10,22 @@ export default new Router({
             path: '/',
             name: 'homePage',
             component: () => import('../view/homepage.vue'),
-        },
+        },//首页
+        {
+            path: '/classity',
+            name: 'homePage',
+            component: () => import('../view/classity.vue'),
+        },//分类
+        {
+            path: '/class',
+            name: 'homePage',
+            component: () => import('../view/class.vue'),
+        },//课程
+        {
+            path: '/my',
+            name: 'homePage',
+            component: () => import('../view/my.vue'),
+        },//我的
     ]
 })
 

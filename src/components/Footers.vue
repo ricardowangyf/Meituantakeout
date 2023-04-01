@@ -9,30 +9,36 @@
           }}
         </ul>
       </div>
-      <div class="text">
-        <img src="../assets/classify.svg" />
-        <ul>
-          {{
-            classify
-          }}
-        </ul>
-      </div>
-      <div class="text">
-        <img src="../assets/class.svg" />
-        <ul>
-          {{
-            claass
-          }}
-        </ul>
-      </div>
-      <div class="text">
-        <img src="../assets/my.svg" />
-        <ul>
-          {{
-            my
-          }}
-        </ul>
-      </div>
+      <router-link to="/classity">
+        <div class="text">
+          <img src="../assets/classify.svg" />
+          <ul>
+            {{
+              classify
+            }}
+          </ul>
+        </div>
+      </router-link>
+      <router-link to="/class">
+        <div class="text">
+          <img src="../assets/class.svg" />
+          <ul>
+            {{
+              claass
+            }}
+          </ul>
+        </div>
+      </router-link>
+      <router-link to="/my">
+        <div class="text">
+          <img src="../assets/my.svg" />
+          <ul>
+            {{
+              my
+            }}
+          </ul>
+        </div>
+      </router-link>
     </li>
   </div>
 </template>
