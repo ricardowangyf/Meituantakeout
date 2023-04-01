@@ -48,6 +48,6 @@ export default {
   border-radius: 53%;
 }
 .centera{
-    text-align: center;
+  text-align: center;
 }
 </style>

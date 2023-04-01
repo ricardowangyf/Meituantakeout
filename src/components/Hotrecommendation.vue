@@ -44,18 +44,16 @@ export default {
   padding-top: 10px;
   font-weight: 300;
   font-size: 21px;
-  margin-left: 10px;
-  margin-top: 10px;
+  margin: 10px 0 0 10px;
 }
 .bottom {
   border-bottom: 1px solid blue;
 }
 
 .more {
-  padding-top: 26px;
-    font-weight: 200;
-    color: #808080a3;
-    height: 20px;
-    padding-right: 13px;
+  font-weight: 200;
+  color: #808080a3;
+  height: 20px;
+  padding: 26px 13px 0 0;
 }
 </style>

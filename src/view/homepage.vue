@@ -130,15 +130,25 @@
             </div>
           </li>
           <div class="top">
-            <li v-for="(line, index) in line" :key="index">
-              <classes
-                :name="line.name"
-                :data="line.data"
-                :monet="line.money"
-                :job="line.job"
-              />
-            </li>
-        
+            <div>
+              <li v-for="(line, index) in line" :key="index">
+                <classes
+                  :name="line.name"
+                  :data="line.data"
+                  :monet="line.money"
+                  :job="line.job"
+                />
+              </li>
+            </div>
+            <div>
+              <li>
+                <ul>
+                  {{
+                    line.money
+                  }}
+                </ul>
+              </li>
+            </div>
           </div>
         </div>
       </div>
@@ -166,7 +176,7 @@ export default {
       tableData: [],
       detali: [],
       hotcards: [],
-      money:" ",
+      // money: " ",
       name: [],
       line: [],
       more: "更多",
@@ -238,11 +248,10 @@ li {
 }
 .classes h1 {
   margin: 0;
-  padding-top: 5px;
   font-size: 12px;
-  padding-left: 12px;
   color: #808080a1;
   font-weight: 400;
+  padding: 5px 0 0 12px;
 }
 
 .message {
@@ -280,32 +289,33 @@ li {
   color: #0000ff91;
 }
 .wenzi {
-  width: 85px;
   padding-top: 10px;
   font-weight: 300;
   font-size: 21px;
-  margin-left: 10px;
-  margin-top: 10px;
+  margin: 10px 0 0 10px;
 }
-
+.wenzi {
+  width: 85px;
+}
 .more {
-  padding-top: 26px;
   font-weight: 200;
   color: #808080a3;
-  height: 20px;
-  padding-right: 13px;
+  padding: 26px 13px 0 0;
 }
-
+.more {
+  height: 20px;
+}
 .card {
   display: flex;
   flex-wrap: wrap;
-  padding-left: 10px;
-  padding-top: 10px;
+  padding: 10px 0 0 10px;
 }
 
 .component-details {
-  width: 43.99%;
   padding-right: 20px;
+}
+.component-details {
+  width: 43.99%;
 }
 
 .change {
@@ -316,13 +326,12 @@ li {
   text-align: center;
   cursor: pointer;
   background: #fff;
-  border-bottom-left-radius: 35%;
-  border-bottom-right-radius: 35%;
-  border-top-left-radius: 35%;
-  border-top-right-radius: 35%;
-  width: 130px;
+  border-radius: 35%;
   margin: 0;
   padding: 0;
+}
+.change {
+  width: 130px;
 }
 .flex {
   display: flex;
@@ -333,9 +342,7 @@ li {
   margin-top: 15px;
 }
 .recommendation img {
-  padding-left: 25px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 30px 0 30px 50px;
 }
 .start {
   display: flex;
@@ -343,9 +350,7 @@ li {
 }
 
 .huan {
-  margin-left: 100px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px 0 20px 100px;
 }
 
 .betw {
@@ -358,12 +363,13 @@ li {
   padding-right: 20px;
 }
 .teacher-card {
+  padding: 25px 0 25px 15px;
+}
+
+.teacher-card {
   display: flex;
-  padding-left: 15px;
-  padding-top: 25px;
-  padding-bottom: 25px;
 }
 .top {
-  padding-top: 30px;
+  padding: 30px 0 0 15px;
 }
 </style>

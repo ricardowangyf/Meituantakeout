@@ -53,16 +53,22 @@ export default {
   font-weight: 400;
 }
 .picture img {
+  border-radius: 5%;
+}
+.picture img {
   height: 78px;
   width: 100%;
-  border-radius: 5%;
 }
 .human {
   margin: 0;
   font-size: 12px;
   color: gray;
+}
+.human {
   display: flex;
   justify-content: flex-end;
+}
+.human {
   position: relative;
   bottom: 20px;
 }
@@ -72,10 +78,11 @@ export default {
   background-color: rgb(255 71 0 / 79%);
   border: none;
   text-align: center;
+  color: #fff;
+  margin: 0 0 16px 10px;
+}
+.card-content button {
   width: 134px;
   height: 25px;
-  color: #fff;
-  margin-bottom: 16px;
-  margin-left: 10px;
 }
 </style>

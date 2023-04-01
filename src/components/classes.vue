@@ -1,20 +1,27 @@
 <template>
   <div class="centera">
-    <div class="picture">
-      <h1>{{ name }}</h1>
-      <div class="start jianju">
-        <img src="../assets/address.svg" />
-        <h1 class="data job">{{ data }}</h1>
+    <div class="class-picture">
+      <div>
+        <h1>{{ name }}</h1>
+        <div class="start jianju">
+          <img src="../assets/address.svg" />
+          <h1 class="data job">{{ data }}</h1>
+        </div>
+        <div class="start">
+          <img src="../assets/time.svg" />
+          <h2 class="job">{{ job }}</h2>
+        </div>
       </div>
-      <div class="start ">
-        <img src="../assets/time.svg" />
-        <h2 class="job">{{ job }}</h2>
-      </div>
+      <li>
+        <button class="bao">
+          {{ baoming }}
+        </button>
+      </li>
     </div>
   </div>
 </template>
   
-<script>
+<script scoped>
 export default {
   name: "XxxxXxx",
   props: {
@@ -31,6 +38,11 @@ export default {
       default: "",
     },
   },
+  data() {
+    return {
+      baoming: "火速报名",
+    };
+  },
 };
 </script>
   
@@ -39,7 +51,7 @@ export default {
   margin: 0;
   padding: 0;
 }
-.picture h1 {
+.class-picture h1 {
   margin: 0;
   padding: 0;
   font-weight: 400;
@@ -58,8 +70,30 @@ export default {
   color: #808080bd;
   font-weight: 300;
 }
-.jianju{
-  padding-top: 15px;
-    padding-bottom: 15px;
+.jianju {
+  padding: 15px 0 15px 0;
+}
+.class-picture {
+  display: flex;
+  justify-content: space-between;
+}
+.class-picture {
+  padding-right: 20px;
+}
+.bao {
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  background: #ff2800;
+  border-bottom-left-radius: 21%;
+  border-bottom-right-radius: 21%;
+  border-top-left-radius: 21%;
+  border-top-right-radius: 21%;
+  width: 130px;
+  margin: 0;
+  border: none;
+  padding: 9px;
 }
 </style>
