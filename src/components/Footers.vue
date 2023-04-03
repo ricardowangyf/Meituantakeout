@@ -1,12 +1,14 @@
 <template>
   <div>
     <li class="demo">
-      <div class="text">
-        <img src="../assets/home.svg" />
-        <h1>
-          {{ home }}
-        </h1>
-      </div>
+      <router-link class="a" to="/">
+        <div class="text">
+          <img src="../assets/home.svg" />
+          <h1>
+            {{ home }}
+          </h1>
+        </div>
+      </router-link>
       <router-link class="a" to="/classity">
         <div class="text">
           <img src="../assets/classify.svg" />
@@ -49,10 +51,12 @@ h1 {
   padding: 0;
   font-size: 14px;
   font-weight: 300;
+  color: rgb(186,186,186);
 }
 li {
   list-style: none;
 }
+
 .a {
   text-decoration: none;
 }

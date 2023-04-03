@@ -35,14 +35,32 @@
           <div class="recently">
             {{ recently }}
           </div>
+          <div class="card-padding">
+            <li
+              v-for="(card, index) in card"
+              :key="index"
+              class="component-details"
+            >
+              <classcard
+                :svg="card.svg"
+                :time="card.time"
+                :name="card.name"
+                :imgurl="card.imgurl"
+              />
+            </li>
+          </div>
         </div>
       </div>
+      <Footers />
     </div>
   </div>
 </template>
 
 <script>
 import { time } from "../API/index"; //在线课程
+import { card } from "../API/index"; //课程卡片API
+import classcard from "../components/classcard.vue"; //课程卡片组件
+import Footers from "../components/Footers.vue"; //课程卡片组件
 export default {
   name: "ClasSity",
   data() {
@@ -52,6 +70,7 @@ export default {
       time: " ",
       long: "累计时长",
       mintues: "分钟",
+      card: [],
       recently: "最近学习  ",
     };
   },
@@ -64,6 +83,18 @@ export default {
       .catch((error) => {
         console.error(error);
       });
+    card()
+      .then((response) => {
+        this.card = response.data;
+        console.log("---->this.card", this.card);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  },
+  components: {
+    classcard, //课程卡片组件
+    Footers,
   },
 };
 </script>
@@ -106,12 +137,17 @@ h1 {
 .around {
   display: flex;
   justify-content: space-around;
-  padding-top: 60px;
 }
 .bottom {
   border-bottom: 2px solid #0000001c;
 }
 .recently {
-  padding: 20px 0 20px 18px;
+  padding: 10px 0 10px 18px;
+}
+.component-details {
+  margin: 20px 0 20px 0;
+}
+.card-padding {
+  padding: 0 15px 0 15px;
 }
 </style>
