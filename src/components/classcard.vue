@@ -44,7 +44,7 @@ export default {
   
 <style scoped>
 .img {
-  width: 50%;
+  width: 43%;
 }
 .contant h1 {
   margin: 0;

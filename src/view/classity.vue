@@ -145,9 +145,9 @@ h1 {
   padding: 10px 0 10px 18px;
 }
 .component-details {
-  margin: 20px 0 20px 0;
+  margin: 25px 0 25px 0;
 }
 .card-padding {
-  padding: 0 15px 0 15px;
+  padding: 0 6px 0 6px;
 }
 </style>

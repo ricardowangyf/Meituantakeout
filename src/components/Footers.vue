@@ -9,13 +9,13 @@
           </h1>
         </div>
       </router-link>
-      <router-link class="a" to="/classity">
+      <router-link class="a" to="/class">
         <div class="text">
           <img src="../assets/classify.svg" />
           <h1>{{ classify }}</h1>
         </div>
       </router-link>
-      <router-link class="a" to="/class">
+      <router-link class="a" to="/classity">
         <div class="text">
           <img src="../assets/class.svg" />
           <h1>{{ claass }}</h1>
@@ -51,7 +51,7 @@ h1 {
   padding: 0;
   font-size: 14px;
   font-weight: 300;
-  color: rgb(186,186,186);
+  color: rgb(186, 186, 186);
 }
 li {
   list-style: none;
