@@ -4,11 +4,15 @@ const user = require('./user');
 const avatar = require('./avatar');
 const offline = require('./offline');
 const time = require('./time');
+const card = require('./card');
+
 const proxy = {
     ...user,
     ...avatar,
     ...offline,
     ...time,
+    ...card,
+
     'GET /api/user/': [
         {
             "CourseName": "[ps大师班,告别小白]",

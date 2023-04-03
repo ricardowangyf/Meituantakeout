@@ -9,3 +9,5 @@ export const detali = () => requests({ url: 'http://localhost:3721/api/user/deta
 export const line = () => requests({ url: 'http://localhost:3721/api/user/line', method: 'GET' }) //线下推荐API
 
 export const time = () => requests({ url: 'http://localhost:3721/api/user/time', method: 'GET' }) //课程时间API
+
+export const card = () => requests({ url: 'http://localhost:3721/api/user/card', method: 'GET' }) //课程页面卡片API
