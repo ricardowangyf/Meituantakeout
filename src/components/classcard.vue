@@ -48,7 +48,7 @@ export default {
 }
 .contant h1 {
   margin: 0;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 400;
   padding-bottom: 38px;
 }
@@ -65,7 +65,7 @@ export default {
   padding-left: 17px;
 }
 .contant-span {
-  font-size: 10px;
+  font-size: 14px;
   color: #8080808f;
 }
 </style>

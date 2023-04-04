@@ -1,7 +1,7 @@
 <template>
   <div>
-    <li class="demo">
-      <router-link class="a" to="/">
+    <li class="demo fixed">
+      <router-link class="none active" to="/">
         <div class="text">
           <img src="../assets/home.svg" />
           <h1>
@@ -9,19 +9,19 @@
           </h1>
         </div>
       </router-link>
-      <router-link class="a" to="/class">
+      <router-link class="none" to="/class">
         <div class="text">
           <img src="../assets/classify.svg" />
           <h1>{{ classify }}</h1>
         </div>
       </router-link>
-      <router-link class="a" to="/classity">
+      <router-link class="none" to="/classity">
         <div class="text">
           <img src="../assets/class.svg" />
           <h1>{{ claass }}</h1>
         </div>
       </router-link>
-      <router-link class="a" to="/my">
+      <router-link class="none" to="/my">
         <div class="text">
           <img src="../assets/my.svg" />
           <h1>{{ my }}</h1>
@@ -56,8 +56,11 @@ h1 {
 li {
   list-style: none;
 }
+.isactive {
+color: #005fe4;
+}
 
-.a {
+.none {
   text-decoration: none;
 }
 .demo {
@@ -71,5 +74,13 @@ li {
 
 .text {
   text-align: center;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
 }
 </style>

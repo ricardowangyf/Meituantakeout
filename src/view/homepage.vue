@@ -152,7 +152,7 @@
           </div>
         </div>
       </div>
-      <div class="recommendation">
+      <div class="recommendation fixed">
         <div class="center">
           <Footers />
         </div>
@@ -289,9 +289,6 @@ li {
   background: #fff;
   margin-top: 10px;
 }
-.isactive {
-  color: #0000ff91;
-}
 .wenzi {
   padding-top: 10px;
   font-weight: 300;
@@ -375,5 +372,12 @@ li {
 }
 .top {
   padding: 30px 0 0 15px;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
 }
 </style>

@@ -5,6 +5,7 @@ const avatar = require('./avatar');
 const offline = require('./offline');
 const time = require('./time');
 const card = require('./card');
+const username = require('./username');
 
 const proxy = {
     ...user,
@@ -12,6 +13,7 @@ const proxy = {
     ...offline,
     ...time,
     ...card,
+    ...username,
 
     'GET /api/user/': [
         {

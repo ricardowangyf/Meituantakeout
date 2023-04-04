@@ -16,7 +16,7 @@
           </li>
           <li
             v-for="(item, index) in time"
-            :key="index"
+            :key="'card-' + index"
             class="component-details"
           >
             <div class="classity-contant">
@@ -38,7 +38,7 @@
           <div class="card-padding">
             <li
               v-for="(card, index) in card"
-              :key="index"
+              :key="'card-' + index"
               class="component-details"
             >
               <classcard
@@ -61,6 +61,7 @@ import { time } from "../API/index"; //在线课程
 import { card } from "../API/index"; //课程卡片API
 import classcard from "../components/classcard.vue"; //课程卡片组件
 import Footers from "../components/Footers.vue"; //课程卡片组件
+
 export default {
   name: "ClasSity",
   data() {
@@ -110,6 +111,7 @@ h1 {
   margin: 0;
   padding: 0;
 }
+
 .classity-contant h1 {
   font-size: 12px;
   color: #808080bd;

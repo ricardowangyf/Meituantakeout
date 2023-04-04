@@ -11,3 +11,5 @@ export const line = () => requests({ url: 'http://localhost:3721/api/user/line',
 export const time = () => requests({ url: 'http://localhost:3721/api/user/time', method: 'GET' }) //课程时间API
 
 export const card = () => requests({ url: 'http://localhost:3721/api/user/card', method: 'GET' }) //课程页面卡片API
+
+export const username = () => requests({ url: 'http://localhost:3721/api/user/username', method: 'GET' }) //课程页面卡片API
