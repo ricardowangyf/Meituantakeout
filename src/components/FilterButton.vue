@@ -1,54 +1,71 @@
 <template>
-  <!-- 在线推荐模块过滤按钮 -->
-  <div class="between padding">
-    <div class="button" v-for="item in index" :key="item">
-      <button class="name">{{ items[item].message }}</button>
+  <!-- 在 FilterButton 组件中发射 change 事件 -->
+  <div class="spacebetween">
+    <div class="card">
+      <div
+        class="upList"
+        v-for="item in upNavList"
+        :key="item.id"
+        @click="change(item.id)"
+        :class="{ backCol: currentId === item.id }"
+      >
+        <div class="upTitle hover">{{ item.title }}</div>
+      </div>
     </div>
   </div>
 </template>
-  
-  <script>
+
+<script>
 export default {
   name: "FilterButton",
+  props: {
+    currentId: { type: Number, default: 0 }, // 当前选中项的 ID，默认为全部分类
+  },
   data() {
     return {
-      items: [
-        { message: "全部" },
-        { message: "平面广告" },
-        { message: "电商淘宝" },
-        { message: "网页UI" },
-        { message: "视屏音屏" },
-        { message: "装饰装修" },
+      upNavList: [
+        { id: 0, title: "全部" },
+        { id: 1, title: "平面广告" },
+        { id: 2, title: "电商淘宝" },
+        { id: 3, title: "网页UI" },
+        { id: 4, title: "视频音频" },
+        { id: 5, title: "装饰装修" },
       ],
-      index: [0, 1, 3, 4, 5],
     };
+  },
+  methods: {
+    change(id) {
+      if (this.currentId !== id) {
+        this.$emit("change", id); // 发射 change 事件
+      }
+    },
   },
 };
 </script>
-  
-<style lang="less" scoped>
-button {
-  padding: 0;
-  background: #fff;
-  border: none;
-  font-size: 12px;
-}
 
-.between {
+<style scoped>
+.backCol {
+  color: #02b8b8;
+}
+.spacebetween {
   display: flex;
   justify-content: space-between;
 }
-.padding {
-  padding-left: 14px;
-  padding-top: 3px;
+.spacebetween {
+  padding-top: 7px;
 }
-.flex {
+.upList {
+  margin-left: 10px;
+}
+.card {
   display: flex;
-  justify-content: space-between;
-  padding-left: 10px;
+  flex-wrap: wrap;
 }
-.button {
-  padding-right: 15px;
+/* .card {
+  padding: 10px 0 0 20px;
+} */
+.upTitle {
+  font-weight: 200;
+  font-size: 10px;
 }
 </style>
-  

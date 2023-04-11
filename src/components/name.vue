@@ -5,7 +5,7 @@
         <img :src="imgurl" />
         <div class="tag">
           <h1>{{ name }}</h1>
-          <div style="margin-top: 10px">
+          <div class="buttontop">
             <button class="style none">90后</button>
             <button class="style">狮子座</button>
             <button class="style">爱摄影</button>
@@ -46,6 +46,9 @@ button {
   border-radius: 29%;
   background-color: #87cefa;
 }
+.buttontop{
+  margin-top: 10px
+}
 .none {
   margin-left: 0;
 }
@@ -74,6 +77,6 @@ button {
   background-color: #57a6f7;
 }
 .item {
-  padding-left: 39px;
+  margin-left: 18px;
 }
 </style>

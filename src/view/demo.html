@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content">
+        <div class="page" style="display: block;">
+            第一页内容
+        </div>
+        <div class="page" style="display: none;">
+            第二页内容
+        </div>
+        <div class="page" style="display: none;">
+            第三页内容
+        </div>
+    </div>
+    <button onclick="togglePage()">切换内容</button>
+    <script>
+        function togglePage() {
+            var pages = document.getElementsByClassName("page");
+            for (var i = 0; i < pages.length; i++) {
+                if (pages[i].style.display === "block") {
+                    pages[i].style.display = "none";
+                    if (i < pages.length - 1) {
+                        pages[i + 1].style.display = "block";
+                    } else {
+                        pages[0].style.display = "block";
+                    }
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

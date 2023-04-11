@@ -1,5 +1,8 @@
 <template>
   <div class="footer">
+    <div class="class-contant">
+
+    </div>
     <Footers />
   </div>
 </template>

@@ -12,11 +12,9 @@
           <h2 class="job">{{ job }}</h2>
         </div>
       </div>
-      <li>
-        <button class="bao">
-          {{ baoming }}
-        </button>
-      </li>
+      <button class="bao">
+        {{ baoming }}
+      </button>
     </div>
   </div>
 </template>
@@ -81,19 +79,15 @@ export default {
   padding-right: 20px;
 }
 .bao {
-  border-radius: 5px;
+  border-radius: 21%;
   color: #fff;
   font-size: 16px;
   text-align: center;
   cursor: pointer;
   background: #ff2800;
-  border-bottom-left-radius: 21%;
-  border-bottom-right-radius: 21%;
-  border-top-left-radius: 21%;
-  border-top-right-radius: 21%;
-  width: 115px;
   margin: 0;
   border: none;
   padding: 5px;
+  height: 34px;
 }
 </style>

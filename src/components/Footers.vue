@@ -56,8 +56,8 @@ h1 {
 li {
   list-style: none;
 }
-.isactive {
-color: #005fe4;
+.active {
+  color: #005fe4;
 }
 
 .none {

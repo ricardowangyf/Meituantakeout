@@ -44,6 +44,7 @@ export default {
   margin: 0;
   font-size: 12px;
   font-weight: 400;
+  color: #000000;
 }
 .picture img {
   height: 78px;

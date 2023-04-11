@@ -13,7 +13,7 @@
             </li>
           </div>
         </div>
-        <div class="my-contant" style="padding: 30px 0 30px 0">
+        <div class="my-contant">
           <div class="flex" style="text-align: center">
             <div class="classmate">
               <div>
@@ -36,9 +36,12 @@
           </div>
         </div>
         <div class="my-class">
-          <li v-for="value in object" :key="value" class="object">
-            {{ value }}
-          </li>
+          <router-link to="/classcard">
+            <li v-for="value in object" :key="value" class="object">
+              {{ value }}
+            </li>
+          </router-link>
+          <router-link to="/top/claass"> </router-link>
         </div>
       </div>
     </div>
@@ -89,18 +92,19 @@ export default {
 h1 {
   margin: 0;
   padding: 0;
-  font-size: 19px;
+  font-size: 14px;
   font-weight: 300;
 }
 li {
   list-style: none;
 }
-router-link {
+a {
   text-decoration: none;
+  color: black;
 }
 img {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
 }
 .footer {
   position: fixed;
@@ -112,9 +116,10 @@ img {
   background: #fff;
 }
 .bottom {
-  border-bottom: 2px solid #c8c2c2;
+  border-bottom: 2px solid #c8c2c233;
 }
 .my-contant {
+  padding: 25px 0px 25px 0;
   background: #fff;
 }
 .flex {
@@ -126,7 +131,7 @@ img {
   background: #fff;
 }
 .object {
-  padding: 30px;
+  padding: 25px;
   border-bottom: 2px solid #80808033;
 }
 </style>

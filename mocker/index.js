@@ -5,7 +5,10 @@ const avatar = require('./avatar');
 const offline = require('./offline');
 const time = require('./time');
 const card = require('./card');
+const classcard = require('./classcard');
 const username = require('./username');
+const classare = require('./classare');
+
 
 const proxy = {
     ...user,
@@ -13,23 +16,31 @@ const proxy = {
     ...offline,
     ...time,
     ...card,
+    ...classcard,
+    ...classare,
     ...username,
+
 
     'GET /api/user/': [
         {
+            "name":"ps",
             "CourseName": "[ps大师班,告别小白]",
             "imgurl": "https://s1.ax1x.com/2023/03/27/ppsMeeg.jpg",
             "speaker": "千小喵",
+            "deleteAt": "2022/12/01",
         },
         {
+            "name":"p ",
             "CourseName": "[手绘设计30天速成班]",
             "imgurl": "https://s1.ax1x.com/2023/03/27/ppstBp4.jpg",
             "speaker": "千小喵",
+            "Trash": "2022/12/01",
         },
         {
             "CourseName": "[平面设计30天速成班]",
             "imgurl": "https://s1.ax1x.com/2023/03/27/ppstakT.jpg",
             "speaker": "千小喵",
+            "favorties": true,
         },
         {
             "CourseName": "[PS初级入门到精通]",

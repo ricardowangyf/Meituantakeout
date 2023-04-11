@@ -1,155 +1,148 @@
 <template>
-  <!-- 主页 -->
-  <div>
-    <div class="center">
-      <div class="header">
-        <img
-          src="../assets/培训.png"
-          :style="{ width: '100%', height: 'auto' }"
-        />
+  <!-- 首页 -->
+  <div class="center">
+    <div class="header">
+      <img src="../assets/培训.png" :style="{}" />
+    </div>
+    <div class="login">
+      <div class="message">
+        <img src="../assets/message.png" />
       </div>
-      <div class="login">
-        <div class="message">
-          <img src="../assets/message.png" />
-        </div>
-        <div class="login-ntext">
-          {{ message }}
-        </div>
-        <div class="login-button">
-          <button>登录</button>
-        </div>
+      <div class="login-text">
+        {{ loginmessage }}
       </div>
-      <div class="logon">
-        <img
-          src="../assets/com.png"
-          alt=""
-          :style="{ width: '100%', height: 'auto' }"
-        />
+      <div class="login-button">
+        <button>登录</button>
       </div>
-      <div class="classes">
-        <div class="center">
-          <div class="flex">
-            <div class="wenzi bottom">
-              {{ classes }}
-            </div>
-            <div class="more">
-              {{ more }}
-            </div>
+    </div>
+    <div class="regsiter">
+      <img
+        src="../assets/com.png"
+        alt=""
+        :style="{ width: '100%', height: 'auto' }"
+      />
+    </div>
+    <div class="online-courses">
+      <div class="center">
+        <div class="flex">
+          <div class="contant bottom">
+            <h1>{{ classes }}</h1>
           </div>
-          <div>
-            <div class="start">
-              <h1>{{ classification }}</h1>
-              <FilterButton> </FilterButton>
-            </div>
-            <div class="card" v-if="tableData && tableData.length > 0">
-              <li
-                v-for="(tableData, index) in tableData"
-                :key="index"
-                class="component-details"
-              >
-                <TrainingCourse
-                  :title="tableData.speaker"
-                  :des="tableData.imgurl"
-                  :eal="tableData.CourseName"
-                />
-              </li>
-              <div class="huan">
-                <button class="change">换一批</button>
-              </div>
-            </div>
+          <div class="more">
+            <h1>{{ more }}</h1>
           </div>
         </div>
-      </div>
-      <div class="recommendation">
-        <div class="center">
-          <li>
-            <Hotrecommendation />
-          </li>
-          <div class="betw card">
-            <li
-              v-for="(hotcards, index) in hotcards"
+        <div>
+          <div class="routerbutton">
+            <h1>{{ classification }}</h1>
+            <div>
+              <FilterButton />
+            </div>
+          </div>
+          <div class="card" v-if="tableData && tableData.length > 0">
+            <TrainingCourse
+              v-for="(tableData, index) in tableData"
               :key="index"
               class="component-details"
-            >
-              <hotcard
-                :human="hotcards.people"
-                :monet="hotcards.money"
-                :name="hotcards.CourseName"
-                :imgurl="hotcards.imgurl"
-              />
-            </li>
+              :title="tableData.speaker"
+              :des="tableData.imgurl"
+              :data="item"
+              :eal="tableData.CourseName"
+            />
+          </div>
+          <div class="change-button">
+            <button class="change">换一批</button>
           </div>
         </div>
       </div>
-      <div class="recommendation">
-        <div class="center">
-          <li class="flex">
-            <div class="wenzi bottom">
-              {{ gan }}
+    </div>
+    <div class="homepage-card homepage-bottom">
+      <div class="center">
+        <li>
+          <div class="flex">
+            <div class="contant bottom">
+              <h1>{{ hot }}</h1>
             </div>
             <div class="more">
               {{ more }}
             </div>
-          </li>
+          </div>
+        </li>
+        <div class="between card">
+          <hotcard
+            v-for="(hotcards, index) in hotcards"
+            :key="index"
+            class="component-details"
+            :human="hotcards.people"
+            :monet="hotcards.money"
+            :name="hotcards.CourseName"
+            :imgurl="hotcards.imgurl"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="homepage-card homepage-bottom">
+      <div class="center">
+        <li class="flex">
+          <div class="contant bottom">
+            <h1>{{ workinventory }}</h1>
+          </div>
+          <div class="more">
+            <span>{{ more }}</span>
+          </div>
+        </li>
+        <div class="flexcenter">
           <img src="https://s2.xptou.com/2023/03/31/64268ec86158e.jpg" />
         </div>
       </div>
-      <div class="recommendation">
-        <div class="center">
-          <li class="flex">
-            <div class="wenzi bottom">
-              {{ shi }}
-            </div>
-            <div class="more">
-              {{ more }}
-            </div>
-          </li>
-          <div class="teacher-card">
-            <li
-              v-for="(detali, index) in detali"
-              :key="index"
-              class="teacher-details"
-            >
-              <teacher
-                :img="detali.users"
-                :username="detali.username"
-                :job="detali.job"
-              />
-            </li>
+    </div>
+    <div class="homepage-card homepage-bottom">
+      <div class="center">
+        <li class="flex">
+          <div class="contant bottom">
+            <h1>{{ shi }}</h1>
           </div>
+          <div class="more">
+            <span>{{ more }}</span>
+          </div>
+        </li>
+        <div class="teacher-card">
+          <teacher
+            v-for="(detali, index) in detali"
+            :key="index"
+            class="teacher-details"
+            :img="detali.users"
+            :username="detali.username"
+            :job="detali.job"
+          />
         </div>
       </div>
-      <div class="recommendation">
-        <div class="center">
-          <li class="flex">
-            <div class="wenzi bottom">
-              {{ xian }}
-            </div>
-            <div class="more">
-              {{ more }}
-            </div>
-          </li>
-          <div class="top">
-            <div>
-              <li v-for="(line, index) in line" :key="index">
-                <classes
-                  :name="line.name"
-                  :data="line.data"
-                  :monet="line.money"
-                  :job="line.job"
-                />
-              </li>
-            </div>
-            <div>
-              <li>
-                <ul>
-                  {{
-                    line.money
-                  }}
-                </ul>
-              </li>
-            </div>
+    </div>
+    <div class="homepage-card">
+      <div class="center">
+        <li class="flex">
+          <div class="contant bottom">
+            <h1>{{ xian }}</h1>
           </div>
+          <div class="more">
+            <span>{{ more }}</span>
+          </div>
+        </li>
+        <div class="top">
+          <div>
+            <classes
+              v-for="(line, index) in line"
+              :key="index"
+              style="padding-top: 24px"
+              :name="line.name"
+              :data="line.data"
+              :monet="line.money"
+              :job="line.job"
+            />
+          </div>
+          <li>
+            <h1>{{ line.money }}</h1>
+          </li>
         </div>
       </div>
       <div class="recommendation fixed">
@@ -162,36 +155,39 @@
 </template>
 
 <script>
-import { reqCategoryList } from "../API/index"; //在线课程
-import { detali } from "../API/index"; //用户头像API
-import { recommend } from "../API/index"; //热门推荐API
-import { line } from "../API/index"; //线下推荐API
-import TrainingCourse from "../components/TrainingCourse.vue"; //在线推荐
 import FilterButton from "../components/FilterButton.vue"; //过滤按钮
-import Hotrecommendation from "../components/Hotrecommendation.vue"; //热门推荐
-import hotcard from "../components/hotcard.vue"; //热门推荐组件内容
+import hotcard from "../components/hotcard.vue"; //热门推荐内容
 import teacher from "../components/teacher.vue"; //名师推荐
 import classes from "../components/classes.vue"; //线下推荐卡片
 import Footers from "../components/Footers.vue"; //底部导航栏
+import TrainingCourse from "../components/TrainingCourse.vue"; //在线推荐
+import { detali } from "../API/index"; //用户头像API
+import { reqCategoryList } from "../API/index"; //在线课程API
+import { recommend } from "../API/index"; //热门推荐API
+import { line } from "../API/index"; //线下推荐API
 
 export default {
   name: "HomePage",
-  props: ["initialCounter"],
+  props: ["type"],
   data() {
     return {
       tableData: [],
       detali: [],
       hotcards: [],
+      filteredTableData: [], // 经过过滤后的表格数据
+      CourseName: " ",
       name: [],
       line: [],
       more: "更多",
       selected: 0,
       shi: "名师推荐",
       xian: "线下推荐",
-      gan: "干货盘点",
+      workinventory: "干货盘点",
       classes: "在线课程",
-      classification: "类别: ",
-      message: "您还没有登录,只能试听五分钟哦",
+      item: [],
+      hot: "热门推荐",
+      classification: "类别:",
+      loginmessage: "您还没有登录,只能试听五分钟哦",
     };
   },
   mounted() {
@@ -217,19 +213,43 @@ export default {
   },
   components: {
     FilterButton, //过滤按钮
-    TrainingCourse, //在线推荐
-    Hotrecommendation, //热门推荐
-    hotcard, //热门推荐组件内容
+    hotcard, //热门推荐内容
     teacher, //名师推荐
     classes, //线下推荐卡片
-    Footers, //线下推荐卡片
+    Footers, //底部导航栏
+    TrainingCourse, //在线推荐
   },
+  watch: {
+    $route: {
+      handler(newVal, olaVal) {
+        const newType = newVal.params.type;
+        const oldType = olaVal.params.type;
+        this.name = newVal.params.name;
+        if (newType && newType !== oldType) {
+          this.filterDatas(newType, this.tableData);
+        }
+        console.log("tableData", this.tableData);
+      },
+    },
+  },
+  methods: {},
 };
 </script>
 
 <style scoped>
 li {
   list-style: none;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.header img {
+  width: 100%;
+  height: auto;
 }
 .center {
   margin: 0 auto;
@@ -250,7 +270,8 @@ li {
 .message img {
   width: 20px;
 }
-.classes h1 {
+
+.more h1 {
   margin: 0;
   font-size: 12px;
   color: #808080a1;
@@ -262,40 +283,46 @@ li {
   padding-left: 10px;
 }
 
-.login-ntext {
+.login-text {
   padding-right: 105px;
   font-size: 10px;
 }
 
+.login-button {
+  position: relative;
+  bottom: 3px;
+  padding-right: 15px;
+}
 .login-button button {
   border: none;
   background: white;
   color: blue;
   font-weight: 300;
+  padding: 0;
 }
 
-.logon {
+.regsiter {
   padding-top: 10px;
 }
 
-.logon img {
+.regsiter img {
   width: 360px;
 }
-
 .bottom {
   border-bottom: 1px solid blue;
 }
-.classes {
+.online-courses {
   background: #fff;
   margin-top: 10px;
 }
-.wenzi {
+.contant h1 {
   padding-top: 10px;
   font-weight: 300;
   font-size: 21px;
-  margin: 10px 0 0 10px;
+  width: 85px;
 }
-.wenzi {
+.contant {
+  margin-left: 13px;
   width: 85px;
 }
 .more {
@@ -321,42 +348,46 @@ li {
 
 .change {
   border: 2px solid rgb(169, 71, 253);
-  border-radius: 5px;
   color: rgb(169, 71, 253);
   font-size: 16px;
   text-align: center;
+  margin-bottom: 34px;
   cursor: pointer;
   background: #fff;
   border-radius: 35%;
-  margin: 0;
   padding: 0;
 }
+
 .change {
   width: 130px;
 }
+
 .flex {
   display: flex;
   justify-content: space-between;
 }
-.recommendation {
+.homepage-card {
   background: #fff;
   margin-top: 15px;
+  margin-bottom: 85px;
 }
-.recommendation img {
-  padding: 30px 0 30px 30px;
+.homepage-card img {
+  padding: 30px 0 30px 0;
 }
-.start {
+
+.homepage-bottom {
+  margin-bottom: 20px;
+}
+.routerbutton {
   display: flex;
   justify-content: start;
 }
-
-.huan {
-  margin: 20px 0 20px 100px;
+.routerbutton {
+  padding-top: 15px;
 }
 
-.betw {
-  display: flex;
-  justify-content: space-between;
+.change-button {
+  margin: 20px 0 35px 130px;
 }
 
 .teacher-details {
@@ -371,7 +402,7 @@ li {
   display: flex;
 }
 .top {
-  padding: 30px 0 0 15px;
+  padding: 30px 0 10px 15px;
 }
 
 .fixed {
@@ -379,5 +410,43 @@ li {
   bottom: 0px;
   left: 0;
   width: 100%;
+}
+
+.routerbutton h1 {
+  font-size: 12px;
+  color: #8080809e;
+  font-weight: 400;
+  padding: 7px 0 0 12px;
+}
+
+.flexcenter {
+  display: flex;
+  justify-content: center;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.contant h1 {
+  width: 85px;
+  padding-top: 10px;
+  font-weight: 300;
+  font-size: 21px;
+  margin: 0;
+}
+.contant {
+  margin-left: 13px;
+  width: 85px;
+}
+.bottom {
+  border-bottom: 1px solid blue;
+}
+
+.more {
+  font-weight: 200;
+  color: #808080a3;
+  height: 20px;
+  padding: 10px 10px 0 0;
 }
 </style>
