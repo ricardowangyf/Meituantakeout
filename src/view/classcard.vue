@@ -100,7 +100,7 @@ li {
 .object {
   margin-bottom: 26px;
   background: #fff;
-  padding: 33px 0 23px 0;
+  padding: 30px 0 20px 0;
 }
 
 .classcard {

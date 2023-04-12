@@ -44,28 +44,31 @@ export default {
   
 <style scoped>
 .img {
-  width: 43%;
+  width: 45%;
+  height: 100px;
 }
 .contant h1 {
   margin: 0;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 400;
-  padding-bottom: 38px;
+  padding-bottom: 25px;
 }
 .contant img {
-  width: 20px;
+  width: 15px;
+  height: 15px;
 }
 .flex {
   display: flex;
+  padding-top: 15px;
 }
 .card {
   display: flex;
 }
 .contant {
-  padding-left: 17px;
+  padding-left: 10px;
 }
 .contant-span {
-  font-size: 14px;
+  font-size: 12px;
   color: #8080808f;
 }
 </style>

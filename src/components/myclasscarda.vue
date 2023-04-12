@@ -99,6 +99,6 @@ button {
 }
 
 .spantop {
-  padding-top: 20px;
+  padding-top: 15px;
 }
 </style>

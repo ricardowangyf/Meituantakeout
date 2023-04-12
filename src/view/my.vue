@@ -4,13 +4,13 @@
       <div class="center">
         <div class="my-header bottom">
           <div class="flex">
-            <li
+            <NameApp
               v-for="(username, index) in username"
               :key="index"
               class="teacher-details"
-            >
-              <NameApp :imgurl="username.imgurl" :name="username.name" />
-            </li>
+              :imgurl="username.imgurl"
+              :name="username.name"
+            />
           </div>
         </div>
         <div class="my-contant">
@@ -39,9 +39,9 @@
           <router-link to="/classcard">
             <li v-for="value in object" :key="value" class="object">
               {{ value }}
+              <img src="../assets/right.svg" />
             </li>
           </router-link>
-          <router-link to="/top/claass"> </router-link>
         </div>
       </div>
     </div>
@@ -133,5 +133,14 @@ img {
 .object {
   padding: 25px;
   border-bottom: 2px solid #80808033;
+}
+.object {
+  display: flex;
+  justify-content: space-between;
+}
+.object img {
+  width: 15px;
+  height: 15px;
+  padding-top: 5px;
 }
 </style>
