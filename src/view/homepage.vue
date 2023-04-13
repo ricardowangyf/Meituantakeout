@@ -340,7 +340,7 @@ a {
 }
 
 .component-details {
-  padding-right: 20px;
+  padding: 0 20px 20px 0;
 }
 .component-details {
   width: 43.99%;
