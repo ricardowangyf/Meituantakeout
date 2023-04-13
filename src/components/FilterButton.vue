@@ -53,17 +53,16 @@ export default {
 }
 .spacebetween {
   padding-top: 7px;
+  
 }
 .upList {
-  margin-left: 10px;
+  margin-left: 7px;
 }
 .card {
   display: flex;
   flex-wrap: wrap;
 }
-/* .card {
-  padding: 10px 0 0 20px;
-} */
+
 .upTitle {
   font-weight: 200;
   font-size: 10px;

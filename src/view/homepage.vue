@@ -322,13 +322,13 @@ a {
   width: 85px;
 }
 .contant {
-  margin-left: 13px;
+  margin-left: 17px;
   width: 85px;
 }
 .more {
   font-weight: 200;
   color: #808080a3;
-  padding: 26px 13px 0 0;
+  padding: 20px 13px 0 0px;
 }
 .more {
   height: 20px;
@@ -336,7 +336,7 @@ a {
 .card {
   display: flex;
   flex-wrap: wrap;
-  padding: 10px 0 0 10px;
+  padding: 15px 0 0 20px;
 }
 
 .component-details {
@@ -351,11 +351,11 @@ a {
   color: rgb(169, 71, 253);
   font-size: 16px;
   text-align: center;
-  margin-bottom: 34px;
   cursor: pointer;
   background: #fff;
   border-radius: 35%;
   padding: 0;
+  margin: 22px 0 33px 0;
 }
 
 .change {
@@ -383,11 +383,12 @@ a {
   justify-content: start;
 }
 .routerbutton {
-  padding-top: 15px;
+  padding: 15px 10px 0 7px;
 }
 
 .change-button {
-  margin: 20px 0 35px 130px;
+  display: flex;
+  justify-content: center;
 }
 
 .teacher-details {
@@ -435,18 +436,7 @@ a {
   font-size: 21px;
   margin: 0;
 }
-.contant {
-  margin-left: 13px;
-  width: 85px;
-}
 .bottom {
   border-bottom: 1px solid blue;
-}
-
-.more {
-  font-weight: 200;
-  color: #808080a3;
-  height: 20px;
-  padding: 10px 10px 0 0;
 }
 </style>
