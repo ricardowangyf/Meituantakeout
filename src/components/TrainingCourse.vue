@@ -47,9 +47,9 @@ export default {
   display: flex;
   justify-content: flex-start;
 }
-.space-between{
+.space-between {
   display: flex;
-    justify-content: space-between;
+  justify-content: space-between;
 }
 .textspacing h1 {
   margin: 0;

@@ -53,7 +53,6 @@ export default {
 }
 .spacebetween {
   padding-top: 7px;
-  
 }
 .upList {
   margin-left: 7px;

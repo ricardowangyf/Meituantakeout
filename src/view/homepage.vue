@@ -16,11 +16,7 @@
       </div>
     </div>
     <div class="regsiter">
-      <img
-        src="../assets/com.png"
-        alt=""
-        :style="{ width: '100%', height: 'auto' }"
-      />
+      <img src="../assets/com.png" alt="" />
     </div>
     <div class="online-courses">
       <div class="center">
@@ -368,8 +364,7 @@ a {
 }
 .homepage-card {
   background: #fff;
-  margin-top: 15px;
-  margin-bottom: 85px;
+  margin: 15px 0 85px 0;
 }
 .homepage-card img {
   padding: 30px 0 30px 0;
@@ -438,5 +433,9 @@ a {
 }
 .bottom {
   border-bottom: 1px solid blue;
+}
+.regsiter img {
+  width: 100%;
+  height: auto;
 }
 </style>

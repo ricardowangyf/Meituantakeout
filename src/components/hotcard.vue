@@ -63,7 +63,6 @@ export default {
   margin: 0;
   font-size: 12px;
   color: #8080806b;
-
 }
 .human {
   display: flex;

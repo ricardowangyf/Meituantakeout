@@ -17,7 +17,7 @@
           </div>
         </div>
         <div class="classcard">
-          <myclasscard
+          <myclasscarda
             v-for="(userdetali, index) in userdetali"
             :key="index"
             class="object"
@@ -34,7 +34,7 @@
   
   <script>
 import Footers from "../components/Footers.vue"; //底部组件
-import myclasscard from "../components/myclasscarda.vue"; //课程卡片组件
+import myclasscarda from "../components/myclasscarda.vue"; //课程卡片组件
 import { classare } from "../API/index"; //在线课程
 
 export default {
@@ -49,7 +49,7 @@ export default {
   },
   components: {
     Footers, //底部组件
-    myclasscard, //课程卡片组件
+    myclasscarda, //课程卡片组件
   },
   mounted() {
     classare()
