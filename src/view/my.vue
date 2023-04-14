@@ -93,7 +93,7 @@ h1 {
   margin: 0;
   padding: 0;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
 }
 li {
   list-style: none;
@@ -131,7 +131,7 @@ img {
   background: #fff;
 }
 .object {
-  padding: 25px;
+  padding: 20px;
   border-bottom: 2px solid #80808033;
 }
 .object {

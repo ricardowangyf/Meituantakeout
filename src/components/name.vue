@@ -41,13 +41,13 @@ button {
   border: none;
 }
 .style {
-  padding: 4px;
+  padding: 5px;
   margin-left: 10px;
-  border-radius: 29%;
-  background-color: #87cefa;
+  border-radius: 10%;
+  background-color: #87cefa52;
 }
-.buttontop{
-  margin-top: 10px
+.buttontop {
+  margin-top: 10px;
 }
 .none {
   margin-left: 0;

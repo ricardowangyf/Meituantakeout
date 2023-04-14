@@ -52,7 +52,7 @@ export default {
 .class-picture h1 {
   margin: 0;
   padding: 0;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 18px;
 }
 .start {
@@ -69,7 +69,7 @@ export default {
   font-weight: 300;
 }
 .jianju {
-  padding: 15px 0 15px 0;
+  padding: 15px 0 5px 0;
 }
 .class-picture {
   display: flex;

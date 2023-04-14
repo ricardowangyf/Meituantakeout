@@ -2,7 +2,7 @@
   <!-- 首页 -->
   <div class="center">
     <div class="header">
-      <img src="../assets/培训.png" :style="{}" />
+      <img src="../assets/培训.png" />
     </div>
     <div class="login">
       <div class="message">
@@ -398,7 +398,7 @@ a {
   display: flex;
 }
 .top {
-  padding: 30px 0 10px 15px;
+  padding: 15px 0 10px 15px;
 }
 
 .fixed {

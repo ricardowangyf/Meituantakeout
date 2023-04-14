@@ -68,10 +68,6 @@ export default {
   display: flex;
   justify-content: flex-end;
 }
-.human {
-  position: relative;
-  bottom: 20px;
-}
 .card-content button {
   padding: 0;
   margin: 0;
