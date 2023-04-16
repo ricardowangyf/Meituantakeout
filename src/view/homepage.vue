@@ -32,17 +32,20 @@
           <div class="routerbutton">
             <h1>{{ classification }}</h1>
             <div>
-              <FilterButton />
+              <FilterButton
+                :currentId="currentId"
+                @change="currentId = $event"
+              />
             </div>
           </div>
           <div class="card" v-if="tableData && tableData.length > 0">
             <TrainingCourse
-              v-for="(tableData, index) in tableData"
+              v-for="(tableData, index) in this.filteredData"
               :key="index"
+              :currentId="this.currentId"
               class="component-details"
               :title="tableData.speaker"
               :des="tableData.imgurl"
-              :data="item"
               :eal="tableData.CourseName"
             />
           </div>
@@ -167,12 +170,14 @@ export default {
   props: ["type"],
   data() {
     return {
+      CourseName: " ",
+      currentId: 0,
       tableData: [],
+      filteredData: [],
       detali: [],
       hotcards: [],
-      filteredTableData: [], // 经过过滤后的表格数据
-      CourseName: " ",
       name: [],
+      item: [],
       line: [],
       more: "更多",
       selected: 0,
@@ -180,7 +185,6 @@ export default {
       xian: "线下推荐",
       workinventory: "干货盘点",
       classes: "在线课程",
-      item: [],
       hot: "热门推荐",
       classification: "类别:",
       loginmessage: "您还没有登录,只能试听五分钟哦",
@@ -201,11 +205,20 @@ export default {
       this.line = data.data;
       console.log("---->this.line", data.data);
     }); //线下推荐API
-
-    reqCategoryList().then((data) => {
-      this.tableData = data.data;
-      console.log("---->this.tableData", data.data);
-    }); //在线课程API
+  },
+  created() {
+    this.getList();
+  },
+  methods: {
+    handleChange(id) {
+      this.currentId = id;
+    },
+    getList() {
+      reqCategoryList().then((data) => {
+        this.tableData = data.data;
+        console.log("---->this.tableData", data.data);
+      });
+    },
   },
   components: {
     FilterButton, //过滤按钮
@@ -215,20 +228,6 @@ export default {
     Footers, //底部导航栏
     TrainingCourse, //在线推荐
   },
-  watch: {
-    $route: {
-      handler(newVal, olaVal) {
-        const newType = newVal.params.type;
-        const oldType = olaVal.params.type;
-        this.name = newVal.params.name;
-        if (newType && newType !== oldType) {
-          this.filterDatas(newType, this.tableData);
-        }
-        console.log("tableData", this.tableData);
-      },
-    },
-  },
-  methods: {},
 };
 </script>
 

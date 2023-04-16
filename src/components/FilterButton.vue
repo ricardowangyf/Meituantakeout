@@ -35,9 +35,7 @@ export default {
   },
   methods: {
     change(id) {
-      if (this.currentId !== id) {
-        this.$emit("change", id); // 发射 change 事件
-      }
+      this.$emit("change", id);
     },
   },
 };

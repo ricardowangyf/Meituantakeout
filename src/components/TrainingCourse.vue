@@ -20,6 +20,10 @@
 <script >
 export default {
   props: {
+    currentId: {
+      type: Number,
+      default: 0,
+    },
     title: {
       type: String,
       default: "",
@@ -39,7 +43,23 @@ export default {
       baoming: "688人报名",
     };
   },
-  methods: {},
+  mounted() {
+    this.filteredData = this.tableData.filter((item) => {
+      return item.id === this.currentId || this.currentId === 0;
+    });
+  },
+  beforeUpdate() {
+    this.filteredData = this.tableData.filter((item) => {
+      return item.id === this.currentId || this.currentId === 0;
+    });
+  },
+  computed: {
+  filteredData() {
+    return this.tableData.filter(item => {
+      return item.id === this.currentId 
+    })
+  }   
+},
 };
 </script>
 <style  scoped>
