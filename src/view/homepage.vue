@@ -210,9 +210,6 @@ export default {
     this.getList();
   },
   methods: {
-    handleChange(id) {
-      this.currentId = id;
-    },
     getList() {
       reqCategoryList().then((data) => {
         this.tableData = data.data;

@@ -48,7 +48,7 @@ export default {
 .username {
   margin: 0;
   padding: 0;
-}
+} 
 .class-picture h1 {
   margin: 0;
   padding: 0;
