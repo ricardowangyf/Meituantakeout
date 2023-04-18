@@ -33,16 +33,13 @@
             <h1>{{ classification }}</h1>
             <div>
               <FilterButton
-                :currentId="currentId"
-                @change="currentId = $event"
               />
             </div>
           </div>
           <div class="card" v-if="tableData && tableData.length > 0">
             <TrainingCourse
-              v-for="(tableData, index) in this.filteredData"
+              v-for="(tableData, index) in tableData"
               :key="index"
-              :currentId="this.currentId"
               class="component-details"
               :title="tableData.speaker"
               :des="tableData.imgurl"
@@ -171,7 +168,6 @@ export default {
   data() {
     return {
       CourseName: " ",
-      currentId: 0,
       tableData: [],
       filteredData: [],
       detali: [],

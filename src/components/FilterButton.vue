@@ -6,7 +6,7 @@
         class="upList"
         v-for="item in upNavList"
         :key="item.id"
-        @click="change(item.id)"
+
         :class="{ backCol: currentId === item.id }"
       >
         <div class="upTitle hover">{{ item.title }}</div>
@@ -32,11 +32,6 @@ export default {
         { id: 5, title: "装饰装修" },
       ],
     };
-  },
-  methods: {
-    change(id) {
-      this.$emit("change", id);
-    },
   },
 };
 </script>
