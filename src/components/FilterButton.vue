@@ -1,26 +1,17 @@
 <template>
-  <!-- 在 FilterButton 组件中发射 change 事件 -->
   <div class="spacebetween">
     <div class="card">
-      <div
-        class="upList"
-        v-for="item in upNavList"
-        :key="item.id"
-
-        :class="{ backCol: currentId === item.id }"
-      >
+      <div class="upList" v-for="item in filteredList" :key="item.id">
         <div class="upTitle hover">{{ item.title }}</div>
       </div>
     </div>
   </div>
 </template>
-
+  
 <script>
 export default {
   name: "FilterButton",
-  props: {
-    currentId: { type: Number, default: 0 }, // 当前选中项的 ID，默认为全部分类
-  },
+  props: {},
   data() {
     return {
       upNavList: [
@@ -31,32 +22,45 @@ export default {
         { id: 4, title: "视频音频" },
         { id: 5, title: "装饰装修" },
       ],
+      selectedCategory: "全部",
     };
+  },
+  computed: {
+    filteredList() {
+      if (this.selectedCategory === "全部") {
+        return this.upNavList;
+      } else {
+        return this.upNavList.filter(
+          (item) => item.title === this.selectedCategory
+        );
+      }
+    },
   },
 };
 </script>
-
-<style scoped>
-.backCol {
+  <style>
+  scoped>
+  .backCol {
   color: #02b8b8;
-}
-.spacebetween {
+  }
+  .spacebetween {
   display: flex;
   justify-content: space-between;
-}
-.spacebetween {
+  }
+  .spacebetween {
   padding-top: 7px;
-}
-.upList {
+  }
+  .upList {
   margin-left: 7px;
-}
-.card {
+  }
+  .card {
   display: flex;
   flex-wrap: wrap;
-}
-
-.upTitle {
+  }
+  
+  .upTitle {
   font-weight: 200;
   font-size: 10px;
-}
-</style>
+  }
+  </style>
+  

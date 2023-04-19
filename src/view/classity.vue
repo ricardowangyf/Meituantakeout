@@ -6,7 +6,7 @@
           <li
             v-for="(item, index) in time"
             :key="index"
-            class="component-details"
+            class="component-detailsx"
           >
             <div class="classity-contant">
               <h1>{{ learn }}</h1>
@@ -17,7 +17,7 @@
           <li
             v-for="(item, index) in time"
             :key="'card-' + index"
-            class="component-details"
+            class="component-detailsx"
           >
             <div class="classity-contant">
               <h1>{{ long }}</h1>
@@ -126,15 +126,14 @@ h1 {
 }
 .timea {
   padding: 0;
-  margin: 0;
   border: none;
   background-color: rgb(125, 69, 249);
   font-size: 12px;
   color: #fff;
   width: 108px;
   height: 28px;
-  border-radius: 18%;
-  margin-top: 20px;
+  border-radius: 20%;
+  margin-top: 50px;
 }
 .around {
   display: flex;
@@ -144,12 +143,15 @@ h1 {
   border-bottom: 2px solid #0000001c;
 }
 .recently {
-  padding: 10px 0 10px 18px;
+  padding: 17px 0 15px 14px;
 }
 .component-details {
-  margin: 25px 0 25px 0;
+  margin: 0 0 25px 0;
 }
 .card-padding {
-  padding: 0 6px 0 6px;
+  padding: 0 5px 65px 5px;
+}
+.component-detailsx{
+  padding: 20px 0 20px 0;
 }
 </style>

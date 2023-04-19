@@ -32,8 +32,7 @@
           <div class="routerbutton">
             <h1>{{ classification }}</h1>
             <div>
-              <FilterButton
-              />
+              <FilterButton />
             </div>
           </div>
           <div class="card" v-if="tableData && tableData.length > 0">
