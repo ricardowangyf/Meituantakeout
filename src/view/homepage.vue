@@ -42,7 +42,7 @@
               class="component-details"
               :title="tableData.speaker"
               :des="tableData.imgurl"
-              :eal="tableData.CourseName"
+              :eal="tableData.name"
             />
           </div>
           <div class="change-button">
@@ -70,7 +70,7 @@
             class="component-details"
             :human="hotcards.people"
             :monet="hotcards.money"
-            :name="hotcards.CourseName"
+            :name="hotcards.name"
             :imgurl="hotcards.imgurl"
           />
         </div>
@@ -156,22 +156,18 @@ import teacher from "../components/teacher.vue"; //名师推荐
 import classes from "../components/classes.vue"; //线下推荐卡片
 import Footers from "../components/Footers.vue"; //底部导航栏
 import TrainingCourse from "../components/TrainingCourse.vue"; //在线推荐
-import { detali } from "../API/index"; //用户头像API
-import { reqCategoryList } from "../API/index"; //在线课程API
-import { recommend } from "../API/index"; //热门推荐API
-import { line } from "../API/index"; //线下推荐API
+import { line, recommend, detali, details } from "../API/index";
 
 export default {
   name: "HomePage",
   props: ["type"],
   data() {
     return {
-      CourseName: " ",
       tableData: [],
       filteredData: [],
       detali: [],
       hotcards: [],
-      name: [],
+
       item: [],
       line: [],
       more: "更多",
@@ -203,13 +199,25 @@ export default {
   },
   created() {
     this.getList();
+    console.log("---->", this.getList());
   },
   methods: {
     getList() {
-      reqCategoryList().then((data) => {
+      details().then((data) => {
         this.tableData = data.data;
-        console.log("---->this.tableData", data.data);
+        console.log("this.tableData", this.tableData);
       });
+    }, //在线推荐API
+    filterDatas(type, list) {
+      if (type === "Trash") {
+        this.items = list.filter((item) => item.deleteAt);
+      } else if (type === "favorites") {
+        this.items = list.filter((item) => item.favorties);
+      } else {
+        this.items = list;
+      }
+      // console.log("------xxxxthis.items", this.items);
+      console.log("type:  ", type);
     },
   },
   components: {

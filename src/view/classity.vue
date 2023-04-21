@@ -57,8 +57,7 @@
 </template>
 
 <script>
-import { time } from "../API/index"; //在线课程
-import { card } from "../API/index"; //课程卡片API
+import { time ,card} from "../API/index"; //在线课程
 import classcard from "../components/classcard.vue"; //课程卡片组件
 import Footers from "../components/Footers.vue"; //课程卡片组件
 

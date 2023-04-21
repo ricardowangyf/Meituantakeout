@@ -1,6 +1,6 @@
 import requests from './request'
 
-export const reqCategoryList = () => requests({ url: 'http://localhost:3721/api/user/', method: 'GET' }) //在线课程API
+export const details = (params) => requests({ url: 'http://localhost:3721/api/user/list', method: 'POST', data:{...params}})  //在线课程API
 
 export const recommend = () => requests({ url: 'http://localhost:3721/api/user/list', method: 'GET' }) //热门推荐API
 
@@ -17,3 +17,4 @@ export const username = () => requests({ url: 'http://localhost:3721/api/user/us
 export const classcard = () => requests({ url: 'http://localhost:3721/api/user/classcard', method: 'GET' }) //课程卡片组件API
 
 export const classare = () => requests({ url: 'http://localhost:3721/api/user/classare', method: 'GET' }) //课程管理API
+

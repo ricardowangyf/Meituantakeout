@@ -8,7 +8,7 @@ const card = require('./card');
 const classcard = require('./classcard');
 const username = require('./username');
 const classare = require('./classare');
-const data = require('./tuijian');
+const listname = require('./listname');
 
 
 const proxy = {
@@ -20,6 +20,6 @@ const proxy = {
     ...classcard,
     ...classare,
     ...username,
-    ...data,
+    ...listname,
 }
 module.exports = (noProxy ? {} : delay(proxy, 10));
