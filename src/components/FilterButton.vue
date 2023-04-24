@@ -59,8 +59,8 @@ export default {
   }
   
   .upTitle {
-  font-weight: 200;
-  font-size: 10px;
+    font-weight: 200;
+    font-size: 13px;
   }
   </style>
   

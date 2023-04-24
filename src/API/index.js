@@ -1,8 +1,8 @@
 import requests from './request'
 
-export const details = (params) => requests({ url: 'http://localhost:3721/api/user/list', method: 'POST', data:{...params}})  //在线课程API
+export const list = (params) => requests({ url: 'http://localhost:3721/api/user/list', method: 'POST', data:{...params}})  //在线课程API
 
-export const recommend = () => requests({ url: 'http://localhost:3721/api/user/list', method: 'GET' }) //热门推荐API
+export const recommend = () => requests({ url: 'http://localhost:3721/api/user/hot', method: 'GET' }) //热门推荐API
 
 export const detali = () => requests({ url: 'http://localhost:3721/api/user/detali', method: 'GET' }) //用户头像API
 
@@ -18,3 +18,4 @@ export const classcard = () => requests({ url: 'http://localhost:3721/api/user/c
 
 export const classare = () => requests({ url: 'http://localhost:3721/api/user/classare', method: 'GET' }) //课程管理API
 
+    

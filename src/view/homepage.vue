@@ -156,7 +156,9 @@ import teacher from "../components/teacher.vue"; //名师推荐
 import classes from "../components/classes.vue"; //线下推荐卡片
 import Footers from "../components/Footers.vue"; //底部导航栏
 import TrainingCourse from "../components/TrainingCourse.vue"; //在线推荐
-import { line, recommend, detali, details } from "../API/index";
+// import { line, recommend, detali, list } from "../API/index";
+// import { list } from "../API/index";
+import { list } from "../API/index";
 
 export default {
   name: "HomePage",
@@ -167,7 +169,6 @@ export default {
       filteredData: [],
       detali: [],
       hotcards: [],
-
       item: [],
       line: [],
       more: "更多",
@@ -182,44 +183,28 @@ export default {
     };
   },
   mounted() {
-    recommend().then((data) => {
-      this.hotcards = data.data;
-      console.log("---->this.hotcards", data.data);
-    }); //热门推荐API
-
-    detali().then((data) => {
-      this.detali = data.data;
-      console.log("---->this.detali", data.data);
-    }); //用户头像API
-
-    line().then((data) => {
-      this.line = data.data;
-      console.log("---->this.line", data.data);
+    // recommend().then((data) => {
+    //   this.hotcards = data.data;
+    //   console.log("---->this.hotcards", data.data);
+    // }); //热门推荐API
+    // detali().then((data) => {
+    //   this.detali = data.data;
+    //   console.log("---->this.detali", data.data);
+    // }); //用户头像API
+    // line().then((data) => {
+    //   this.line = data.data;
+    //   console.log("---->this.line", data.data);
+    // }); //线下推荐API
+    list().then((data) => {
+      this.tableData = data.data;
+      console.log("---->this.line", this.tableData);
     }); //线下推荐API
   },
-  created() {
-    this.getList();
-    console.log("---->", this.getList());
-  },
-  methods: {
-    getList() {
-      details().then((data) => {
-        this.tableData = data.data;
-        console.log("this.tableData", this.tableData);
-      });
-    }, //在线推荐API
-    filterDatas(type, list) {
-      if (type === "Trash") {
-        this.items = list.filter((item) => item.deleteAt);
-      } else if (type === "favorites") {
-        this.items = list.filter((item) => item.favorties);
-      } else {
-        this.items = list;
-      }
-      // console.log("------xxxxthis.items", this.items);
-      console.log("type:  ", type);
-    },
-  },
+  // created() {
+  //   this.getList();
+  //   console.log("---->", this.getList());
+  // },
+  methods: {},
   components: {
     FilterButton, //过滤按钮
     hotcard, //热门推荐内容
@@ -280,7 +265,7 @@ a {
 
 .login-text {
   padding-right: 105px;
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .login-button {
