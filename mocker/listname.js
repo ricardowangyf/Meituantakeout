@@ -3,7 +3,6 @@ const noProxy = process.env.NO_PROXY === 'true';
 
 const proxy = {
   'POST /api/user/list': (req,res) => {
-    // console.log('---ssssss--->', req)
     const list = [
       {
         "name": "[ps大师班,告别小白]",
