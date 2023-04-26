@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  name: "XxxxXXxx",
+  name: "FootersApp",
   data() {
     return {
       home: "主页",

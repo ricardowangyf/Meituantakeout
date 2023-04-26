@@ -156,9 +156,8 @@ import teacher from "../components/teacher.vue"; //名师推荐
 import classes from "../components/classes.vue"; //线下推荐卡片
 import Footers from "../components/Footers.vue"; //底部导航栏
 import TrainingCourse from "../components/TrainingCourse.vue"; //在线推荐
-// import { line, recommend, detali, list } from "../API/index";
+import { line, recommend, detali, list } from "../API/index";
 // import { list } from "../API/index";
-import { list } from "../API/index";
 
 export default {
   name: "HomePage",
@@ -183,27 +182,25 @@ export default {
     };
   },
   mounted() {
-    // recommend().then((data) => {
-    //   this.hotcards = data.data;
-    //   console.log("---->this.hotcards", data.data);
-    // }); //热门推荐API
-    // detali().then((data) => {
-    //   this.detali = data.data;
-    //   console.log("---->this.detali", data.data);
-    // }); //用户头像API
-    // line().then((data) => {
-    //   this.line = data.data;
-    //   console.log("---->this.line", data.data);
-    // }); //线下推荐API
+    recommend().then((data) => {
+      this.hotcards = data.data;
+      console.log("---->this.hotcards", data.data);
+    }); //热门推荐API
+    detali().then((data) => {
+      this.detali = data.data;
+      console.log("---->this.detali", data.data);
+    }); //用户头像API
+    line().then((data) => {
+      this.line = data.data;
+      console.log("---->this.line", data.data);
+    }); //线下推荐API
     list().then((data) => {
+      // console.log('----->',data)
+      // console.log('----JSONJSONJSON----->',JSON.stringify(data.data ))
       this.tableData = data.data;
-      console.log("---->this.line", this.tableData);
+      console.log("---->this.tableData", this.tableData);
     }); //线下推荐API
   },
-  // created() {
-  //   this.getList();
-  //   console.log("---->", this.getList());
-  // },
   methods: {},
   components: {
     FilterButton, //过滤按钮
