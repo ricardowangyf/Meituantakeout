@@ -194,12 +194,32 @@ export default {
       this.line = data.data;
       console.log("---->this.line", data.data);
     }); //线下推荐API
+    // list().then((data) => {
+    //   // console.log('----->',data)
+    //   // console.log('----JSONJSONJSON----->',JSON.stringify(data.data ))
+    //   this.tableData = data.data;
+    //   console.log("---->this.tableData", this.tableData);
+    // }); //线下推荐API
     list().then((data) => {
-      // console.log('----->',data)
-      // console.log('----JSONJSONJSON----->',JSON.stringify(data.data ))
       this.tableData = data.data;
-      console.log("---->this.tableData", this.tableData);
-    }); //线下推荐API
+      const type = this.$route.params.type || "all";
+      this.filterDatas(type, data.data);
+      console.log("this.tableData", data.data);
+    });
+  },
+
+  watch: {
+    $route: {
+      handler(newVal, olaVal) {
+        const newType = newVal.params.type;
+        const oldType = olaVal.params.type;
+        this.name = newVal.params.name;
+        if (newType && newType !== oldType) {
+          this.filterDatas(newType, this.tableData);
+        }
+        console.log("tableData", this.tableData);
+      },
+    },
   },
   methods: {},
   components: {
@@ -209,6 +229,16 @@ export default {
     classes, //线下推荐卡片
     Footers, //底部导航栏
     TrainingCourse, //在线推荐
+  },
+  filterDatas(type, list) {
+    if (type === "tab") {
+      this.items = list.filter((item) => item.tab);
+    } else if (type === "all") {
+      this.items = list.filter((item) => item.all);
+    } else {
+      this.items = list;
+    }
+    console.log("type:  ", type);
   },
 };
 </script>
