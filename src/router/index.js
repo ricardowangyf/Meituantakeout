@@ -9,6 +9,7 @@ export default new Router({
         {
             path: '/',
             name: 'homePage',
+            props: true ,
             component: () => import('../view/homepage.vue'),
         },//首页
         {

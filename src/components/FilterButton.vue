@@ -2,7 +2,9 @@
   <div class="spacebetween">
     <div class="card">
       <div class="upList" v-for="item in filteredList" :key="item.id">
-        <div class="upTitle hover">{{ item.title }}</div>
+        <router-link :to="`/list/${tableData.tab}`">
+          <div class="upTitle hover">{{ item.title }}</div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -11,7 +13,7 @@
 <script>
 export default {
   name: "FilterButton",
-  props: {},
+  props: ["type"],
   data() {
     return {
       upNavList: [
@@ -39,28 +41,33 @@ export default {
 };
 </script>
   <style>
-  scoped>
-  .backCol {
+scoped > .backCol {
   color: #02b8b8;
-  }
-  .spacebetween {
+}
+button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: #fff;
+}
+.spacebetween {
   display: flex;
   justify-content: space-between;
-  }
-  .spacebetween {
+}
+.spacebetween {
   padding-top: 7px;
-  }
-  .upList {
+}
+.upList {
   margin-left: 7px;
-  }
-  .card {
+}
+.card {
   display: flex;
   flex-wrap: wrap;
-  }
-  
-  .upTitle {
-    font-weight: 200;
-    font-size: 13px;
-  }
-  </style>
+}
+
+.upTitle {
+  font-weight: 200;
+  font-size: 13px;
+}
+</style>
   
