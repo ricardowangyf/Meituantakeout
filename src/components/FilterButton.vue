@@ -2,7 +2,7 @@
   <div class="spacebetween">
     <div class="card">
       <div class="upList" v-for="item in filteredList" :key="item.id">
-        <router-link :to="`/list/${tableData.tab}`">
+        <router-link :to="`/${tableData.tab}`">
           <div class="upTitle hover">{{ item.title }}</div>
         </router-link>
       </div>
@@ -25,6 +25,7 @@ export default {
         { id: 5, title: "装饰装修" },
       ],
       selectedCategory: "全部",
+      tableData: [],
     };
   },
   computed: {
@@ -55,7 +56,7 @@ button {
   justify-content: space-between;
 }
 .spacebetween {
-  padding-top: 7px;
+  padding-top: 5px;
 }
 .upList {
   margin-left: 7px;
@@ -64,7 +65,9 @@ button {
   display: flex;
   flex-wrap: wrap;
 }
-
+a {
+  text-decoration: none;
+}
 .upTitle {
   font-weight: 200;
   font-size: 13px;

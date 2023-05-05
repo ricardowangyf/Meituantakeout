@@ -8,6 +8,7 @@ const proxy = {
         "name": "[ps大师班,告别小白]",
         "imgurl": "https://s1.ax1x.com/2023/03/27/ppsMeeg.jpg",
         "speaker": "千小喵",
+        "tab": "ps",
       },
       {
         "name": "[手绘设计30天速成班]",
@@ -44,9 +45,6 @@ const proxy = {
     for (let i = 0; i < list.length; i++) {
       const item = list[i];
       if (item.tab) {
-        filteredList.push(item);
-      }
-      if (item.all) {
         filteredList.push(item);
       }
     }

@@ -9,7 +9,7 @@ export default new Router({
         {
             path: '/',
             name: 'homePage',
-            props: true ,
+            props: true,
             component: () => import('../view/homepage.vue'),
         },//首页
         {
@@ -37,7 +37,7 @@ export default new Router({
             name: 'my',
             component: () => import('../view/my.vue'),
         },//我的
-     
+
     ]
 })
 
