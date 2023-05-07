@@ -3,8 +3,7 @@ import Router from 'vue-router'
 
 export default new Router({
     mode: 'hash',
-    linkActiveClass: 'active',
-    base: '/TrainingApp/',// 属性用于指定应用程序部署时的基本 URL 路径
+    linkActiveClass: 'hover',
     routes: [
         {
             path: '/',

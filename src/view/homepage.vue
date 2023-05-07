@@ -31,8 +31,12 @@
         <div>
           <div class="routerbutton">
             <h1>{{ classification }}</h1>
-            <div>
-              <FilterButton />
+            <div class="filterbutton">
+              <div class="upList" v-for="item in upNavList" :key="item.id">
+                <router-link :to="`/${tableData.tab}`" class="hover">
+                  <div class="upTitle hover">{{ item.title }}</div>
+                </router-link>
+              </div>
             </div>
           </div>
           <div class="card" v-if="tableData && tableData.length > 0">
@@ -53,21 +57,19 @@
     </div>
     <div class="homepage-card homepage-bottom">
       <div class="center">
-        <li>
-          <div class="flex">
-            <div class="contant bottom">
-              <h1>{{ hot }}</h1>
-            </div>
-            <div class="more">
-              {{ more }}
-            </div>
+        <div class="flex">
+          <div class="contant bottom">
+            <h1>{{ hot }}</h1>
           </div>
-        </li>
-        <div class="between card">
+          <div class="more">
+            {{ more }}
+          </div>
+        </div>
+        <div class="between hotcard">
           <hotcard
             v-for="(hotcards, index) in hotcards"
             :key="index"
-            class="component-details"
+            class="hotcard-width"
             :human="hotcards.people"
             :monet="hotcards.money"
             :name="hotcards.name"
@@ -150,14 +152,12 @@
 </template>
 
 <script>
-import FilterButton from "../components/FilterButton.vue"; //过滤按钮
 import hotcard from "../components/hotcard.vue"; //热门推荐内容
 import teacher from "../components/teacher.vue"; //名师推荐
 import classes from "../components/classes.vue"; //线下推荐卡片
 import Footers from "../components/Footers.vue"; //底部导航栏
 import TrainingCourse from "../components/TrainingCourse.vue"; //在线推荐
 import { line, recommend, detali, list } from "../API/index";
-// import { list } from "../API/index";
 
 export default {
   name: "HomePage",
@@ -179,6 +179,15 @@ export default {
       hot: "热门推荐",
       classification: "类别:",
       loginmessage: "您还没有登录,只能试听五分钟哦",
+      upNavList: [
+        { id: 0, title: "全部" },
+        { id: 1, title: "平面广告" },
+        { id: 2, title: "电商淘宝" },
+        { id: 3, title: "网页UI" },
+        { id: 4, title: "视频音频" },
+        { id: 5, title: "装饰装修" },
+      ],
+      selectedCategory: "全部",
     };
   },
   mounted() {
@@ -207,7 +216,6 @@ export default {
   },
   methods: {},
   components: {
-    FilterButton, //过滤按钮
     hotcard, //热门推荐内容
     teacher, //名师推荐
     classes, //线下推荐卡片
@@ -235,6 +243,8 @@ a {
 .center {
   margin: 0 auto;
 }
+/* .between {
+} */
 .isactive {
   color: blue;
 }
@@ -310,6 +320,9 @@ a {
   font-weight: 200;
   color: #808080a3;
   padding: 20px 13px 0 0px;
+}
+.padding {
+  padding-top: 2px;
 }
 .more {
   height: 20px;
@@ -405,10 +418,10 @@ a {
   justify-content: center;
 }
 
-.flex {
+/* .flex {
   display: flex;
   justify-content: space-between;
-}
+} */
 .contant h1 {
   width: 85px;
   padding-top: 10px;
@@ -422,5 +435,56 @@ a {
 .regsiter img {
   width: 100%;
   height: auto;
+}
+
+scoped > .backCol {
+  color: #02b8b8;
+}
+button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: #fff;
+}
+.spacebetween {
+  display: flex;
+  justify-content: space-between;
+}
+.spacebetween {
+  padding-top: 5px;
+}
+.upList {
+  margin-left: 7px;
+}
+/* .card {
+  display: flex;
+  flex-wrap: wrap;
+} */
+a {
+  text-decoration: none;
+}
+.upTitle {
+  font-weight: 200;
+  font-size: 13px;
+}
+.u-link--Active {
+  color: #551a8b;
+}
+.filterbutton {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 5px;
+}
+.hotcard-width {
+  width: 51%;
+  border: 1px solid #fb5b5b2e;
+  margin: 0 20px 0 20px;
+  box-shadow: 0 0 10px 5px #fb5b5b2e;
+}
+.hotcard {
+  display: flex;
+  overflow: hidden;
+  justify-content: space-between;
+  overflow-x: scroll;
 }
 </style>
