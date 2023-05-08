@@ -29,11 +29,17 @@
           </div>
         </div>
         <div>
+          <!-- 在线课程路模块由转跳位置 -->
           <div class="routerbutton">
             <h1>{{ classification }}</h1>
             <div class="filterbutton">
-              <div class="upList" v-for="item in upNavList" :key="item.id">
-                <router-link :to="`/${tableData.tab}`" class="hover">
+              <div
+                class="upList"
+                v-for="item in upNavList"
+                :key="item.id"
+                @click="filiterbutton()"
+              >
+                <router-link :to="`/all/${tableData.tab}${type}`" class="hover">
                   <div class="upTitle hover">{{ item.title }}</div>
                 </router-link>
               </div>
