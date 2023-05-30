@@ -39,20 +39,18 @@
                 :key="item.id"
                 @click="filiterbutton()"
               >
-                <router-link :to="`/all/${tableData.tab}${type}`" class="hover">
-                  <div class="upTitle hover">{{ item.title }}</div>
-                </router-link>
+                <div class="upTitle hover">{{ item.title }}</div>
               </div>
             </div>
           </div>
-          <div class="card" v-if="tableData && tableData.length > 0">
+          <div class="card">
             <TrainingCourse
-              v-for="(tableData, index) in tableData"
+              v-for="(item, index) in tableData"
               :key="index"
               class="component-details"
-              :title="tableData.speaker"
-              :des="tableData.imgurl"
-              :eal="tableData.name"
+              :title="item.speaker"
+              :des="item.imgurl"
+              :eal="item.name"
             />
           </div>
           <div class="change-button">
@@ -121,7 +119,7 @@
         </div>
       </div>
     </div>
-    <div class="homepage-card">
+    <div class="-card">
       <div class="center">
         <li class="flex">
           <div class="contant bottom">
@@ -163,7 +161,8 @@ import teacher from "../components/teacher.vue"; //名师推荐
 import classes from "../components/classes.vue"; //线下推荐卡片
 import Footers from "../components/Footers.vue"; //底部导航栏
 import TrainingCourse from "../components/TrainingCourse.vue"; //在线推荐
-import { line, recommend, detali, list } from "../API/index";
+// import { line, recommend, detali, list } from "../API/index";
+import { list } from "../API/index";
 
 export default {
   name: "HomePage",
@@ -185,6 +184,7 @@ export default {
       hot: "热门推荐",
       classification: "类别:",
       loginmessage: "您还没有登录,只能试听五分钟哦",
+      tab: "",
       upNavList: [
         { id: 0, title: "全部" },
         { id: 1, title: "平面广告" },
@@ -197,18 +197,20 @@ export default {
     };
   },
   mounted() {
-    recommend().then((data) => {
-      this.hotcards = data.data;
-      console.log("---->this.hotcards", data.data);
-    }); //热门推荐API
-    detali().then((data) => {
-      this.detali = data.data;
-      console.log("---->this.detali", data.data);
-    }); //用户头像API
-    line().then((data) => {
-      this.line = data.data;
-      console.log("---->this.line", data.data);
-    }); //线下推荐API
+    // this.detali = JSON.parse(this.$route.query.data.data);
+    // console.log(JSON.parse(this.$route.query.data.data));
+    // recommend().then((data) => {
+    //   this.hotcards = data.data;
+    //   console.log("---->this.hotcards", data.data);
+    // }); //热门推荐API
+    // detali().then((data) => {
+    //   this.detali = data.data;
+    //   console.log("---->this.detali", data.data);
+    // }); //用户头像API
+    // line().then((data) => {
+    //   this.line = data.data;
+    //   console.log("---->this.line", data.data);
+    // }); //线下推荐API
     // list().then((data) => {
     //   // console.log('----->',data)
     //   // console.log('----JSONJSONJSON----->',JSON.stringify(data.data ))
@@ -217,10 +219,29 @@ export default {
     // }); //线下推荐API
     list().then((data) => {
       this.tableData = data.data;
-      console.log("--->this.tableData", data.data);
+      console.log("--->this.tableData", this.tableData);
     });
   },
-  methods: {},
+  methods: {
+    filiterbutton(tab) {
+      this.$router.push({
+        path: "/", // 指定正确的目标路径
+        query: {
+          id: this.tableData[0].tab,
+        },
+      });
+      console.log("---this.$route--->", this.$route);
+      console.log("---tab--->", tab);
+    },
+  },
+  watch: {
+    $route: {
+      handler(newVal, olaVal) {
+        console.log("---newVal--->", newVal);
+        console.log("---olaVal-->", olaVal);
+      },
+    },
+  },
   components: {
     hotcard, //热门推荐内容
     teacher, //名师推荐
@@ -249,8 +270,6 @@ a {
 .center {
   margin: 0 auto;
 }
-/* .between {
-} */
 .isactive {
   color: blue;
 }
@@ -494,3 +513,4 @@ a {
   overflow-x: scroll;
 }
 </style>
+  

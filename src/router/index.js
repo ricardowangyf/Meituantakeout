@@ -10,6 +10,13 @@ export default new Router({
             name: 'homePage',
             props: true,
             component: () => import('../view/homepage.vue'),
+            children: [
+                {
+                    path: '/list',
+                    component: () => import('../components/TrainingCourse.vue'),
+                    props: true
+                },
+            ]
         },//首页
         {
             path: '/detali',
